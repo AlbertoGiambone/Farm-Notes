@@ -105,13 +105,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uVV-oC-FNG">
-                                <rect key="frame" x="27" y="650" width="360" height="75"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TB8-oG-KpN">
+                                <rect key="frame" x="33" y="616" width="348" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ULL-fR-MsN">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ULL-fR-MsN">
+                                        <rect key="frame" x="0.0" y="0.0" width="348" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Py1-Ey-pob" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Py1-Ey-pob" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
@@ -133,7 +133,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nr-SY-fFV" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="130" y="0.0" width="100" height="30"/>
+                                                <rect key="frame" x="124" y="0.0" width="100" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="TJA-BJ-0nA"/>
@@ -152,7 +152,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-iP-g2c" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="260" y="0.0" width="100" height="30"/>
+                                                <rect key="frame" x="248" y="0.0" width="100" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="BXw-dM-feT"/>
@@ -171,8 +171,8 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-NP-R4b">
-                                        <rect key="frame" x="55.5" y="45" width="249" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-NP-R4b">
+                                        <rect key="frame" x="62" y="50" width="224" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdS-sl-9mZ" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
@@ -193,7 +193,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKb-YS-mwf" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="149" y="0.0" width="100" height="30"/>
+                                                <rect key="frame" x="124" y="0.0" width="100" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="cEW-hd-aWL"/>
@@ -213,18 +213,22 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="IFi-PO-T0t"/>
+                                    <constraint firstAttribute="width" constant="348" id="o0f-IE-gc7"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="TB8-oG-KpN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6P9-cU-sxA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ch-yX-jhJ" secondAttribute="trailing" constant="34" id="7f7-tG-FpS"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="leading" secondItem="4nf-VJ-F7t" secondAttribute="leading" id="Bq4-aL-2YX"/>
                             <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gah-CT-XXU"/>
                             <constraint firstItem="4nf-VJ-F7t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="K5c-KT-Zud"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="4nf-VJ-F7t" secondAttribute="bottom" constant="17" id="O6z-OA-Bho"/>
-                            <constraint firstItem="uVV-oC-FNG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XVB-g9-Tw1"/>
-                            <constraint firstItem="uVV-oC-FNG" firstAttribute="top" secondItem="6ch-yX-jhJ" secondAttribute="bottom" constant="42" id="x6r-UE-Adg"/>
+                            <constraint firstItem="TB8-oG-KpN" firstAttribute="top" secondItem="6ch-yX-jhJ" secondAttribute="bottom" constant="8" symbolic="YES" id="a4g-9z-vMQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hMn-2B-7kE"/>
