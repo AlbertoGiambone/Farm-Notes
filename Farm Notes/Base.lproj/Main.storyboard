@@ -118,11 +118,10 @@
                                                     <constraint firstAttribute="height" constant="30" id="dC2-yF-V0H"/>
                                                     <constraint firstAttribute="width" constant="100" id="oe3-tV-ac5"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Custom" cornerStyle="large">
-                                                    <fontDescription key="titleFontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="12"/>
-                                                </buttonConfiguration>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Custom"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -139,17 +138,18 @@
                                                     <constraint firstAttribute="width" constant="100" id="TJA-BJ-0nA"/>
                                                     <constraint firstAttribute="height" constant="30" id="aEi-E8-c0z"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Fertilization">
-                                                    <backgroundConfiguration key="background"/>
-                                                    <fontDescription key="titleFontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                </buttonConfiguration>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Fertilization"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="b8z-0F-aXB" kind="show" id="JBY-Vy-G9X"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-iP-g2c" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
                                                 <rect key="frame" x="248" y="0.0" width="100" height="30"/>
@@ -158,11 +158,10 @@
                                                     <constraint firstAttribute="height" constant="30" id="BXw-dM-feT"/>
                                                     <constraint firstAttribute="width" constant="100" id="eaB-EK-P9k"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Spraying">
-                                                    <fontDescription key="titleFontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                </buttonConfiguration>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Spraying"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -181,11 +180,10 @@
                                                     <constraint firstAttribute="width" constant="100" id="J6H-pH-2xH"/>
                                                     <constraint firstAttribute="height" constant="30" id="q2e-KY-YWL"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Maintenace">
-                                                    <fontDescription key="titleFontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                </buttonConfiguration>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Maintenace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -199,11 +197,10 @@
                                                     <constraint firstAttribute="height" constant="30" id="cEW-hd-aWL"/>
                                                     <constraint firstAttribute="width" constant="100" id="jya-fV-X0Y"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Things to buy">
-                                                    <fontDescription key="titleFontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                </buttonConfiguration>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Things to buy"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -298,6 +295,48 @@
             </objects>
             <point key="canvasLocation" x="1818.840579710145" y="79.6875"/>
         </scene>
+        <!--Fertilzation View Controller-->
+        <scene sceneID="HNN-nn-lew">
+            <objects>
+                <viewController id="b8z-0F-aXB" customClass="FertilzationViewController" customModule="Farm_Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8XG-aT-hzA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Agf-RH-W7e">
+                                <rect key="frame" x="20" y="162" width="374" height="543"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PQg-3I-B4A">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PQg-3I-B4A" id="Aud-KT-uRt">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qyO-1T-BOI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bb8-vx-NxN">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="5VT-3S-k9X">
+                            <connections>
+                                <action selector="plusButtonTapped:" destination="b8z-0F-aXB" id="UCB-JY-YeQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="Agf-RH-W7e" id="5D5-1Q-DGH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dK-gH-ACd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818.840579710145" y="867.85714285714278"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="992-Wd-Gws">
             <objects>
@@ -336,19 +375,19 @@
     </scenes>
     <designables>
         <designable name="0Nr-SY-fFV">
-            <size key="intrinsicContentSize" width="93" height="28"/>
+            <size key="intrinsicContentSize" width="69" height="26"/>
         </designable>
         <designable name="Py1-Ey-pob">
-            <size key="intrinsicContentSize" width="64.5" height="28"/>
+            <size key="intrinsicContentSize" width="42" height="26"/>
         </designable>
         <designable name="QdS-sl-9mZ">
-            <size key="intrinsicContentSize" width="88.5" height="28"/>
+            <size key="intrinsicContentSize" width="65" height="26"/>
         </designable>
         <designable name="dKb-YS-mwf">
-            <size key="intrinsicContentSize" width="100" height="28"/>
+            <size key="intrinsicContentSize" width="76" height="26"/>
         </designable>
         <designable name="ho5-iP-g2c">
-            <size key="intrinsicContentSize" width="71.5" height="28"/>
+            <size key="intrinsicContentSize" width="48" height="26"/>
         </designable>
     </designables>
     <resources>

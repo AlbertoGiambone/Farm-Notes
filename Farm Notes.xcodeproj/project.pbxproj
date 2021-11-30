@@ -14,6 +14,7 @@
 		A044E900274E765200ACA9F9 /* notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044E8FF274E765200ACA9F9 /* notes.swift */; };
 		A086970D274BF6B500AB515D /* CELLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086970C274BF6B500AB515D /* CELLTableViewCell.swift */; };
 		A086970F274E749300AB515D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086970E274E749300AB515D /* NotesViewController.swift */; };
+		A08D74A92756BF90005CBACE /* FertilzationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D74A82756BF8F005CBACE /* FertilzationViewController.swift */; };
 		A0F0800D274BE3AF001363DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0800C274BE3AF001363DA /* AppDelegate.swift */; };
 		A0F0800F274BE3AF001363DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0800E274BE3AF001363DA /* SceneDelegate.swift */; };
 		A0F08014274BE3AF001363DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F08012274BE3AF001363DA /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		A044E8FF274E765200ACA9F9 /* notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.swift; sourceTree = "<group>"; };
 		A086970C274BF6B500AB515D /* CELLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CELLTableViewCell.swift; path = "Farm Notes/CELLTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		A086970E274E749300AB515D /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		A08D74A82756BF8F005CBACE /* FertilzationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilzationViewController.swift; sourceTree = "<group>"; };
 		A0F08009274BE3AF001363DA /* Farm Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F0800C274BE3AF001363DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0F0800E274BE3AF001363DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = NotesVC;
 			sourceTree = "<group>";
 		};
+		A08D74AA2756BFA1005CBACE /* FerilizerVC */ = {
+			isa = PBXGroup;
+			children = (
+				A08D74A82756BF8F005CBACE /* FertilzationViewController.swift */,
+			);
+			path = FerilizerVC;
+			sourceTree = "<group>";
+		};
 		A0F08000274BE3AF001363DA = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 			children = (
 				A0F0800C274BE3AF001363DA /* AppDelegate.swift */,
 				A0F0800E274BE3AF001363DA /* SceneDelegate.swift */,
+				A08D74AA2756BFA1005CBACE /* FerilizerVC */,
 				A025E990274E825C00F7928C /* Services Files */,
 				A044E8FE274E764A00ACA9F9 /* Models */,
 				A0F08012274BE3AF001363DA /* Main.storyboard */,
@@ -278,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08D74A92756BF90005CBACE /* FertilzationViewController.swift in Sources */,
 				A025E994274ED3FB00F7928C /* RoundButton.swift in Sources */,
 				A0F0800D274BE3AF001363DA /* AppDelegate.swift in Sources */,
 				A086970F274E749300AB515D /* NotesViewController.swift in Sources */,

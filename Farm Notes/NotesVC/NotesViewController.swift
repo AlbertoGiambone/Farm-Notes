@@ -31,6 +31,8 @@ class NotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = .systemGreen
+        
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
     }
     
