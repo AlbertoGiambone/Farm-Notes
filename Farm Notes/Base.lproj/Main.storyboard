@@ -282,9 +282,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Hb-dH-FNn">
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="ktd-UE-oyx">
-                            <color key="tintColor" red="0.81930634469999997" green="0.75632143279999997" blue="0.55355256610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="ktd-UE-oyx"/>
                     </navigationItem>
                     <connections>
                         <outlet property="noteBody" destination="UPs-jh-ydW" id="gj1-J7-I24"/>

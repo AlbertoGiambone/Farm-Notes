@@ -15,6 +15,7 @@ struct Fertilization {
     var K: String
     var kg: String
     var fertDate: Date
+    var UID: String
     
     var dict: [String: Any] {
         return[
@@ -23,7 +24,8 @@ struct Fertilization {
             "P": P,
             "K": K,
             "kg": kg,
-            "fertDate": fertDate
+            "fertDate": fertDate,
+            "UID": UID
         
         ]
         

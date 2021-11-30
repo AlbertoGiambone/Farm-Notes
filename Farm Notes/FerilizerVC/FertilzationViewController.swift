@@ -17,9 +17,7 @@ class FertilzationViewController: UIViewController {
     
     
     
-    
     //MARK: LyfeCycle
-    
     
     var userID: String?
     
@@ -34,6 +32,9 @@ class FertilzationViewController: UIViewController {
     
     //MARK: Action
     
+    
+    let db = Firestore.firestore()
+    
     @IBAction func plusButtonTapped(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "New Fertilization", message: nil, preferredStyle: .alert)
@@ -46,39 +47,46 @@ class FertilzationViewController: UIViewController {
         alert.addTextField { (textField) in
             textField.placeholder = "potassium"
         }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Kg"
+        }
         
         let action = UIAlertAction(title: "Add", style: .default)  { (_) in
             let N = alert.textFields![0].text
-            let adress = alert.textFields![1].text
+            let P = alert.textFields![1].text
             let K = alert.textFields![2].text
+            let kg = alert.textFields![3].text
             
+            let todayDate = Date()
+            let todayFormatter = DateFormatter()
+            todayFormatter.dateStyle = .short
+            let now = todayFormatter.string(from: todayDate)
             
-            let db = Firebase.Firestore()
-            
-            db.collection("Fertilization").addDocument()
-            
-            
+            self.db.collection("Fertilization").addDocument(data: ["N": String(N!), "P": String(P!), "K": String(K!), "kg": String(kg!), "fertDate": String(now), "UID": String(self.userID!)
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    //print("Document added with ID: \(ref.documentID)")
+                    }
+                }
             
             self.table.reloadData()
             }
-        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("Cancel button tapped");
         }
         alert.addAction(cancelAction)
         alert.addAction(action)
-        
-        
+    
         present(alert, animated: true, completion: nil)
         
-        
-        
-        
     }
-    
-    
-    
+
+}
     
     
 
-}
+
+
