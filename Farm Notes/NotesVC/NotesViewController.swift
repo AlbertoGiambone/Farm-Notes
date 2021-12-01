@@ -8,11 +8,8 @@
 import UIKit
 import Firebase
 
-class NotesViewController: UIViewController {
+class NotesViewController: UIViewController, UITextViewDelegate {
 
-    
-    
-    
     //MARK: Connection
     
     @IBOutlet weak var noteTitle: UITextField!
@@ -35,8 +32,31 @@ class NotesViewController: UIViewController {
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
+        noteBody.delegate = self
+        noteBody.text = "Note..."
+        noteBody.textColor = UIColor.lightGray
         
     }
+    
+    //MARK: TEXVIEW placeholder being editing
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+
+        if noteBody.textColor == UIColor.lightGray {
+            noteBody.text = ""
+            noteBody.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+
+        if noteBody.text == "" {
+
+            noteBody.text = "Note..."
+            noteBody.textColor = UIColor.lightGray
+        }
+    }
+    
     
     //MARK: Action
     
@@ -52,10 +72,10 @@ class NotesViewController: UIViewController {
         
         
         db.collection("notes").addDocument(data: [
-            "title": String(noteTitle.text),
+            "title": String(noteTitle.text!),
             "body": String(noteBody.text),
             "date": String(now),
-            "UID": String(userID)
+            "UID": String(userID!)
         ])
     }
     
