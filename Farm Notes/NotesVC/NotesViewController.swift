@@ -34,9 +34,30 @@ class NotesViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .systemGreen
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
+        
+        
     }
     
+    //MARK: Action
     
+    
+    @IBAction func DoneButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let db = Firestore.firestore()
+        
+        let todayDate = Date()
+        let todayFormatter = DateFormatter()
+        todayFormatter.dateStyle = .short
+        let now = todayFormatter.string(from: todayDate)
+        
+        
+        db.collection("notes").addDocument(data: [
+            "title": String(noteTitle.text),
+            "body": String(noteBody.text),
+            "date": String(now),
+            "UID": String(userID)
+        ])
+    }
     
     
     

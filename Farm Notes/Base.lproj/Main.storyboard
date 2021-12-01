@@ -282,7 +282,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Hb-dH-FNn">
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="ktd-UE-oyx"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="ktd-UE-oyx">
+                            <connections>
+                                <action selector="DoneButtonTapped:" destination="FKN-f3-nmp" id="fXw-iG-rvx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="noteBody" destination="UPs-jh-ydW" id="gj1-J7-I24"/>
