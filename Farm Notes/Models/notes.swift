@@ -10,6 +10,7 @@ import Foundation
 
 struct notes {
     
+    var type: String
     var title: String
     var body: String
     var date: Date
@@ -19,6 +20,7 @@ struct notes {
     var dict: [String: Any] {
         return[
         
+            "type": type,
             "title": title,
             "body": body,
             "date": date,

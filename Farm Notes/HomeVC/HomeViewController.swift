@@ -47,7 +47,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
                     
                     if y == userID {
-                        let u = notes(title: documet.data()["title"] as! String, body: documet.data()["title"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        let u = notes(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["title"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(u)
                     }

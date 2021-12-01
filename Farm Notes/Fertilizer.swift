@@ -7,9 +7,9 @@
 
 import Foundation
 
-
 struct Fertilization {
     
+    var type: String
     var N: String
     var P: String
     var K: String
@@ -20,6 +20,7 @@ struct Fertilization {
     var dict: [String: Any] {
         return[
         
+            "type": type,
             "N": N,
             "P": P,
             "K": K,
@@ -30,6 +31,5 @@ struct Fertilization {
         ]
         
     }
-    
-    
+
 }

@@ -71,12 +71,17 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         let now = todayFormatter.string(from: todayDate)
         
         
-        db.collection("notes").addDocument(data: [
-            "title": String(noteTitle.text!),
+        db.collection("notes").addDocument(data: ["type": String("notes"), "title": String(noteTitle.text!),
             "body": String(noteBody.text),
             "date": String(now),
             "UID": String(userID!)
-        ])
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                //print("Document added with ID: \(ref.documentID)")
+                }
+            }
     }
     
     
