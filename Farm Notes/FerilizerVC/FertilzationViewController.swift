@@ -15,6 +15,7 @@ class FertilzationViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     
+    @IBOutlet weak var title: UITextField!
     
     
     //MARK: LyfeCycle
