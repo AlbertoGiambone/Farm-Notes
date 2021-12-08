@@ -10,6 +10,8 @@ import Foundation
 struct Fertilization {
     
     var type: String
+    var title: String
+    var fertNotes: String
     var N: String
     var P: String
     var K: String
@@ -21,6 +23,8 @@ struct Fertilization {
         return[
         
             "type": type,
+            "title": title,
+            "fertNotes": fertNotes,
             "N": N,
             "P": P,
             "K": K,

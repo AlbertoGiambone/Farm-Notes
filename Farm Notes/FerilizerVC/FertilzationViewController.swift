@@ -8,14 +8,17 @@
 import UIKit
 import Firebase
 
-class FertilzationViewController: UIViewController {
+class FertilzationViewController: UIViewController, UITextViewDelegate {
 
     
     //MARK: Connection
     
     @IBOutlet weak var table: UITableView!
     
-    @IBOutlet weak var title: UITextField!
+    @IBOutlet weak var fertNote: UITextView!
+    
+    @IBOutlet weak var fertTitle: UITextField!
+    
     
     
     //MARK: LyfeCycle
@@ -28,6 +31,28 @@ class FertilzationViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .systemPink
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
+        
+        fertNote.delegate = self
+        fertNote.text = "Note..."
+        fertNote.textColor = UIColor.lightGray
+        
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+
+        if fertNote.textColor == UIColor.lightGray {
+            fertNote.text = ""
+            fertNote.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+
+        if fertNote.text == "" {
+
+            fertNote.text = "Note..."
+            fertNote.textColor = UIColor.lightGray
+        }
     }
     
     
@@ -63,7 +88,7 @@ class FertilzationViewController: UIViewController {
             todayFormatter.dateStyle = .short
             let now = todayFormatter.string(from: todayDate)
             
-            self.db.collection("Fertilization").addDocument(data: ["type": String("Fertilization"), "N": String(N!), "P": String(P!), "K": String(K!), "kg": String(kg!), "fertDate": String(now), "UID": String(self.userID!)
+            self.db.collection("Fertilization").addDocument(data: ["type": String("Fertilization"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "N": String(N!), "P": String(P!), "K": String(K!), "kg": String(kg!), "fertDate": String(now), "UID": String(self.userID!)
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
