@@ -35,7 +35,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         noteBody.delegate = self
         noteBody.text = "Note..."
         noteBody.textColor = UIColor.lightGray
-        
+         
     }
     
     //MARK: TEXVIEW placeholder being editing
@@ -65,11 +65,12 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         
         let db = Firestore.firestore()
         
-        let todayDate = Date()
-        let todayFormatter = DateFormatter()
-        todayFormatter.dateStyle = .short
-        let now = todayFormatter.string(from: todayDate)
         
+        
+        let day = Date()
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateStyle = .short
+        let now = dayFormatter.string(from: day)
         
         db.collection("notes").addDocument(data: ["type": String("notes"), "title": String(noteTitle.text!),
             "body": String(noteBody.text),
@@ -82,6 +83,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
                 //print("Document added with ID: \(ref.documentID)")
                 }
             }
+        navigationController?.popViewController(animated: true)
     }
     
     

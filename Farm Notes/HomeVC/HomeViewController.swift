@@ -47,12 +47,27 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
                     
                     if y == userID {
-                        let u = notes(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["title"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        let u = notes(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["body"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(u)
+                        print(u)
                     }
                 }
+                self.NOTE.sorted(by: {$1.date < $0.date})
+                self.table.reloadData()
+                print("\(NOTE) QUESTE SONO LE NOTE!")
             }
+        }
+        
+    }
+    
+    
+    //MARK: func for dispatch
+    
+    func run(after seconds: Int, completion: @escaping () -> Void) {
+        let deadLine = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: deadLine){
+            completion()
         }
     }
     
@@ -63,6 +78,23 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        table.delegate = self
+        table.dataSource = self
+
+        run(after: 1){
+            self.fetchFirestore()
+        }
+        run(after: 2){
+            self.table.reloadData()
+        }
+    
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         
         //MARK: Sign IN
         
@@ -77,18 +109,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             }
         }else{
             print("USER ALREADY LOGGED IN!!!")
+            
         }
         
-        table.delegate = self
-        table.dataSource = self
-
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
         
-        
-        
-    }
     
+    }
     //Mark: tableview func
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,11 +129,25 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CELLTableViewCell
+        
+        let day = NOTE[indexPath.row].date
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateStyle = .short
+        let stringDate = dayFormatter.string(from: day)
+        
         cell.titolo.text = String(NOTE[indexPath.row].title)
+        cell.datelabel.text = String(stringDate)
+        cell.bodyLabel.text = String(NOTE[indexPath.row].body)
+        
         
         
         return cell
     }
+    
+     
+    
+    
+    
     /*
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         <#code#>
@@ -118,3 +160,5 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
 
 }
+
+

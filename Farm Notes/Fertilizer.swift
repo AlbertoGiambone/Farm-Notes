@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Fertilization {
+struct FertilizationNote {
     
     var type: String
     var title: String
@@ -37,3 +37,29 @@ struct Fertilization {
     }
 
 }
+
+
+struct FertDistribution {
+    
+    var N: String
+    var P: String
+    var K: String
+    var kg: String
+    var fertDate: Date
+    var UID: String
+    var DID: String
+    
+    var dict: [String: Any] {
+        return[
+        
+            "N": N,
+            "P": P,
+            "K": K,
+            "kg": kg,
+            "fertDate": fertDate,
+            "UID": UID,
+            "DID": DID
+        ]
+    }
+}
+

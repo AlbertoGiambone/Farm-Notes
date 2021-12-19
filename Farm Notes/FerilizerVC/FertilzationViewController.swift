@@ -36,6 +36,9 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
         fertNote.text = "Note..."
         fertNote.textColor = UIColor.lightGray
         
+       // table.delegate = self
+       // table.dataSource = self
+        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -77,7 +80,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
             textField.placeholder = "Kg"
         }
         
-        let action = UIAlertAction(title: "Add", style: .default)  { (_) in
+        let action = UIAlertAction(title: "Save", style: .default)  { (_) in
             let N = alert.textFields![0].text
             let P = alert.textFields![1].text
             let K = alert.textFields![2].text
@@ -109,7 +112,30 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    
+    //MARK: Firestore Call
+    
+  //  func FirestoreCall() {
+   //     db.collection("Fertilization").
+  //  }
+    
+    
+  /*
+    //MARK: Tableview func
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+   */
 }
     
     
