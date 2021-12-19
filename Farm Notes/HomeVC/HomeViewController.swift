@@ -138,8 +138,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         cell.titolo.text = String(NOTE[indexPath.row].title)
         cell.datelabel.text = String(stringDate)
         cell.bodyLabel.text = String(NOTE[indexPath.row].body)
-        
-        
+        cell.typeImage.image = UIImage(named: "CustomIcon")
         
         return cell
     }

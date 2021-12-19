@@ -12,7 +12,7 @@ class CELLTableViewCell: RoundTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        typeImage.layer.cornerRadius = 17
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,7 +29,8 @@ class CELLTableViewCell: RoundTableViewCell {
     
     @IBOutlet weak var bodyLabel: UILabel!
     
-    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var typeImage: UIImageView!
+    
     
     
     override func layoutSubviews() {
