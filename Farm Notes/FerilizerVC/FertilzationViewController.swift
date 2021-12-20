@@ -77,7 +77,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
             textField.placeholder = "potassium"
         }
         alert.addTextField { (textField) in
-            textField.placeholder = "Kg"
+            textField.placeholder = "Kg/Ha"
         }
         
         let action = UIAlertAction(title: "Save", style: .default)  { (_) in
@@ -91,7 +91,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
             todayFormatter.dateStyle = .short
             let now = todayFormatter.string(from: todayDate)
             
-            self.db.collection("Fertilization").addDocument(data: ["type": String("Fertilization"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "N": String(N!), "P": String(P!), "K": String(K!), "kg": String(kg!), "fertDate": String(now), "UID": String(self.userID!)
+            self.db.collection("FertilizationUnit").addDocument(data: ["type": String("Fertilization"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "N": String(N!), "P": String(P!), "K": String(K!), "kg": String(kg!), "fertDate": String(now), "UID": String(self.userID!)
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")

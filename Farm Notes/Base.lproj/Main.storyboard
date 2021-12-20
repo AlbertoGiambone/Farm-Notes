@@ -321,7 +321,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Agf-RH-W7e">
-                                <rect key="frame" x="20" y="383" width="374" height="399"/>
+                                <rect key="frame" x="20" y="501" width="374" height="281"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PQg-3I-B4A">
@@ -335,21 +335,21 @@
                                 </prototypes>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTj-pJ-2pc">
-                                <rect key="frame" x="20" y="141" width="374" height="221"/>
+                                <rect key="frame" x="20" y="141" width="374" height="342"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="221" id="8ua-8b-qFn"/>
+                                    <constraint firstAttribute="height" constant="342" id="8ua-8b-qFn"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title..," minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXn-X2-Oix">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXn-X2-Oix">
                                 <rect key="frame" x="20" y="99" width="374" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="TNs-Ga-QYS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -363,7 +363,7 @@
                             <constraint firstItem="Agf-RH-W7e" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="LHF-Yn-Hnk"/>
                             <constraint firstItem="rXn-X2-Oix" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="W3B-80-34R"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="rXn-X2-Oix" secondAttribute="trailing" constant="20" id="hQc-G0-dh1"/>
-                            <constraint firstItem="Agf-RH-W7e" firstAttribute="top" secondItem="vTj-pJ-2pc" secondAttribute="bottom" constant="21" id="jYf-A7-70V"/>
+                            <constraint firstItem="Agf-RH-W7e" firstAttribute="top" secondItem="vTj-pJ-2pc" secondAttribute="bottom" constant="18" id="jYf-A7-70V"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="vTj-pJ-2pc" secondAttribute="trailing" constant="20" id="rwG-Am-T5x"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="Agf-RH-W7e" secondAttribute="trailing" constant="20" id="tMo-F4-HTS"/>
                         </constraints>

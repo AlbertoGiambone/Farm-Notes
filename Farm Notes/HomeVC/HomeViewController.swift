@@ -30,6 +30,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     let db = Firestore.firestore()
     var NOTE = [notes]()
+    var sortedNOTE = [notes]()
     
     func fetchFirestore() {
         
@@ -53,7 +54,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                         print(u)
                     }
                 }
-                self.NOTE.sorted(by: {$1.date < $0.date})
+                self.sortedNOTE =  self.NOTE.sorted(by: {$1.date < $0.date})
                 self.table.reloadData()
                 print("\(NOTE) QUESTE SONO LE NOTE!")
             }
@@ -84,12 +85,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         table.delegate = self
         table.dataSource = self
 
-        run(after: 1){
-            self.fetchFirestore()
-        }
-        run(after: 2){
-            self.table.reloadData()
-        }
+        
     
         
     }
@@ -114,8 +110,18 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
-        
+        run(after: 1){
+            self.fetchFirestore()
+        }
+        run(after: 2){
+            self.table.reloadData()
+        }
     
+    }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NOTE.removeAll()
     }
     //Mark: tableview func
     
@@ -130,14 +136,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CELLTableViewCell
         
-        let day = NOTE[indexPath.row].date
+        let day = sortedNOTE[indexPath.row].date
         let dayFormatter = DateFormatter()
-        dayFormatter.dateStyle = .short
+        dayFormatter.dateStyle = .medium
         let stringDate = dayFormatter.string(from: day)
         
-        cell.titolo.text = String(NOTE[indexPath.row].title)
+        cell.titolo.text = String(sortedNOTE[indexPath.row].title)
         cell.datelabel.text = String(stringDate)
-        cell.bodyLabel.text = String(NOTE[indexPath.row].body)
+        cell.bodyLabel.text = String(sortedNOTE[indexPath.row].body)
         cell.typeImage.image = UIImage(named: "CustomIcon")
         
         return cell
