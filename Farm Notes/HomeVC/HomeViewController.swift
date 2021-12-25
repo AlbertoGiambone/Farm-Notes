@@ -29,8 +29,9 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     //MARK: Firestore
     
     let db = Firestore.firestore()
-    var NOTE = [notes]()
-    var sortedNOTE = [notes]()
+    var NOTE = [HomeTV]()
+    var sortedNOTE = [HomeTV]()
+    var fertNote = [FertilizationNote]()
     
     func fetchFirestore() {
         
@@ -48,18 +49,40 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
                     
                     if y == userID {
-                        let u = notes(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["body"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        let u = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["body"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(u)
                         print(u)
                     }
                 }
-                self.sortedNOTE =  self.NOTE.sorted(by: {$1.date < $0.date})
-                self.table.reloadData()
+                
                 print("\(NOTE) QUESTE SONO LE NOTE!")
             }
         }
         
+        db.collection("FertilizationNote").getDocuments() { [self](querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting Firestore data: \(err)")
+            }else{
+                for documet in querySnapshot!.documents {
+                
+                    let y = documet.data()["UID"] as! String
+                    
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .short
+                    let d: Date = formatter.date(from: documet.data()["fertDate"] as! String)!
+                    if y == userID {
+                        let f = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["body"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        
+                        self.NOTE.append(f)
+                    }
+                    
+                }
+            }
+        }
+        sortedNOTE = NOTE.sorted(by: {$0.date > $1.date})
+        self.table.reloadData()
     }
     
     
@@ -122,6 +145,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     override func viewDidDisappear(_ animated: Bool) {
         NOTE.removeAll()
+        sortedNOTE.removeAll()
     }
     //Mark: tableview func
     
@@ -130,7 +154,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NOTE.count
+        return sortedNOTE.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -141,10 +165,27 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         dayFormatter.dateStyle = .medium
         let stringDate = dayFormatter.string(from: day)
         
-        cell.titolo.text = String(sortedNOTE[indexPath.row].title)
-        cell.datelabel.text = String(stringDate)
-        cell.bodyLabel.text = String(sortedNOTE[indexPath.row].body)
-        cell.typeImage.image = UIImage(named: "CustomIcon")
+        let yyy = sortedNOTE[indexPath.row].type
+        
+        switch yyy {
+            
+        case "notes":
+            cell.titolo.text = String(sortedNOTE[indexPath.row].title)
+            cell.datelabel.text = String(stringDate)
+            cell.bodyLabel.text = String(sortedNOTE[indexPath.row].body)
+            cell.typeImage.image = UIImage(named: "CustomIcon")
+            
+        case "Fertilization":
+            cell.titolo.text = String(sortedNOTE[indexPath.row].title)
+            cell.datelabel.text = String(stringDate)
+            cell.bodyLabel.text = String(sortedNOTE[indexPath.row].body)
+            cell.typeImage.image = UIImage(named: "FertilizerIcon")
+            
+        default:
+            print("no notes previously added...")
+            
+        }
+        
         
         return cell
     }

@@ -12,6 +12,7 @@
 		A025E992274ED3BA00F7928C /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025E991274ED3BA00F7928C /* RoundLabel.swift */; };
 		A025E994274ED3FB00F7928C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025E993274ED3FB00F7928C /* RoundButton.swift */; };
 		A044E900274E765200ACA9F9 /* notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044E8FF274E765200ACA9F9 /* notes.swift */; };
+		A071185D27760F700010906A /* HomeTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071185C27760F700010906A /* HomeTV.swift */; };
 		A086970D274BF6B500AB515D /* CELLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086970C274BF6B500AB515D /* CELLTableViewCell.swift */; };
 		A086970F274E749300AB515D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086970E274E749300AB515D /* NotesViewController.swift */; };
 		A08D74A92756BF90005CBACE /* FertilzationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D74A82756BF8F005CBACE /* FertilzationViewController.swift */; };
@@ -34,6 +35,7 @@
 		A025E991274ED3BA00F7928C /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		A025E993274ED3FB00F7928C /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A044E8FF274E765200ACA9F9 /* notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.swift; sourceTree = "<group>"; };
+		A071185C27760F700010906A /* HomeTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTV.swift; sourceTree = "<group>"; };
 		A086970C274BF6B500AB515D /* CELLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CELLTableViewCell.swift; path = "Farm Notes/CELLTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		A086970E274E749300AB515D /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		A08D74A82756BF8F005CBACE /* FertilzationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilzationViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				A08D74AB2756C395005CBACE /* Fertilizer.swift */,
+				A071185C27760F700010906A /* HomeTV.swift */,
 				A044E8FF274E765200ACA9F9 /* notes.swift */,
 			);
 			path = Models;
@@ -303,6 +306,7 @@
 				A025E992274ED3BA00F7928C /* RoundLabel.swift in Sources */,
 				A025E98F274E813E00F7928C /* RoundTableViewCell.swift in Sources */,
 				A0A3ABF3276DD82B008CE9BE /* WeightUnit.swift in Sources */,
+				A071185D27760F700010906A /* HomeTV.swift in Sources */,
 				A044E900274E765200ACA9F9 /* notes.swift in Sources */,
 				A0F0800F274BE3AF001363DA /* SceneDelegate.swift in Sources */,
 				A0F08021274BE5D8001363DA /* HomeViewController.swift in Sources */,
