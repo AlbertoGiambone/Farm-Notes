@@ -52,11 +52,9 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                         let u = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["body"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(u)
-                        print(u)
                     }
                 }
-                
-                print("\(NOTE) QUESTE SONO LE NOTE!")
+            
             }
         }
         
@@ -81,7 +79,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                 }
             }
         }
-        sortedNOTE = NOTE.sorted(by: {$0.date > $1.date})
         self.table.reloadData()
     }
     
@@ -103,13 +100,8 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         table.delegate = self
         table.dataSource = self
-
-        
-    
         
     }
 
@@ -136,9 +128,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         run(after: 1){
             self.fetchFirestore()
         }
+        
         run(after: 2){
+            
+            self.NOTE.sort(by:{$0.date > $1.date})
             self.table.reloadData()
         }
+        
+        
     
     }
     
@@ -154,31 +151,31 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sortedNOTE.count
+        return NOTE.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CELLTableViewCell
         
-        let day = sortedNOTE[indexPath.row].date
+        let day = NOTE[indexPath.row].date
         let dayFormatter = DateFormatter()
         dayFormatter.dateStyle = .medium
         let stringDate = dayFormatter.string(from: day)
         
-        let yyy = sortedNOTE[indexPath.row].type
+        let yyy = NOTE[indexPath.row].type
         
         switch yyy {
             
         case "notes":
-            cell.titolo.text = String(sortedNOTE[indexPath.row].title)
+            cell.titolo.text = String(NOTE[indexPath.row].title)
             cell.datelabel.text = String(stringDate)
-            cell.bodyLabel.text = String(sortedNOTE[indexPath.row].body)
+            cell.bodyLabel.text = String(NOTE[indexPath.row].body)
             cell.typeImage.image = UIImage(named: "CustomIcon")
             
         case "Fertilization":
-            cell.titolo.text = String(sortedNOTE[indexPath.row].title)
+            cell.titolo.text = String(NOTE[indexPath.row].title)
             cell.datelabel.text = String(stringDate)
-            cell.bodyLabel.text = String(sortedNOTE[indexPath.row].body)
+            cell.bodyLabel.text = String(NOTE[indexPath.row].body)
             cell.typeImage.image = UIImage(named: "FertilizerIcon")
             
         default:
