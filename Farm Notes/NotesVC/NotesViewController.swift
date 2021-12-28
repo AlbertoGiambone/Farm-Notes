@@ -85,6 +85,8 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         dayFormatter.dateStyle = .short
         let now = dayFormatter.string(from: day)
         
+        if edit == false {
+        
         db.collection("notes").addDocument(data: ["type": String("notes"), "title": String(noteTitle.text!),
             "body": String(noteBody.text),
             "date": String(now),
@@ -96,6 +98,25 @@ class NotesViewController: UIViewController, UITextViewDelegate {
                 //print("Document added with ID: \(ref.documentID)")
                 }
             }
+        }else{
+            db.collection("notes").addDocument(data: ["type": String("notes"), "title": String(noteTitle.text!),
+                "body": String(noteBody.text),
+                "date": String(now),
+                "UID": String(userID!),
+                "DID": String(ID!)
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    //print("Document added with ID: \(ref.documentID)")
+                    }
+                }
+            
+            
+            
+        }
+        
+        
         navigationController?.popViewController(animated: true)
     }
     

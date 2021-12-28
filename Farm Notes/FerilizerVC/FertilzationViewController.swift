@@ -22,12 +22,36 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
     
     
     
+    func fetchFirestore() {
+    let db = Firestore.firestore()
+        db.collection("FertilizationNote").getDocuments() { [self](querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting Firestore data: \(err)")
+            }else{
+                for documet in querySnapshot!.documents {
+                
+                    let y = documet.documentID
+                    
+                    if y == ID {
+                    fertTitle.text = documet.data()["title"] as? String
+                    fertNote.text = documet.data()["fertNotes"] as? String
+                    fertTITLEARRAY = documet.data()["distribution"] as! [String]
+                    print("FERTITLEARRAY:    \(fertTITLEARRAY)")
+                }
+                
+            }
+        }
+    }
+}
+    
     //MARK: LyfeCycle
     
     var userID: String?
     
     var edit = false
     var ID: String?
+    var fertTITLEARRAY = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +60,21 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
+        
+        if edit == false {
         fertNote.delegate = self
         fertNote.text = "Note..."
         fertNote.textColor = UIColor.lightGray
+        }else{
+            fertNote.delegate = self
+            
+            fetchFirestore()
+                        
+                       
+        }
+        
+        
+        
         
         table.delegate = self
         table.dataSource = self

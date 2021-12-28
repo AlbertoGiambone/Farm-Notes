@@ -209,7 +209,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             nTITLE = NOTE[indexPath.row].title
             performSegue(withIdentifier: "notes", sender: nil)
             
-        case "fertilizer":
+        case "Fertilization":
             docID = NOTE[indexPath.row].DID
             performSegue(withIdentifier: "fertilizer", sender: nil)
             
