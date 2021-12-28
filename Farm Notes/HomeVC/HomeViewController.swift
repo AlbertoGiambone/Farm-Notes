@@ -71,7 +71,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["fertDate"] as! String)!
                     if y == userID {
-                        let f = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["body"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        let f = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["fertNotes"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(f)
                     }
@@ -187,19 +187,55 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         return cell
     }
     
-     
-    
-    
-    
-    /*
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        <#code#>
+        return true
     }
+    
+    
+    var docID: String?
+    var nBODY: String?
+    var nTITLE: String?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        
+        let cell = NOTE[indexPath.row].type
+        
+        switch cell {
+            
+        case "notes":
+            
+            docID = NOTE[indexPath.row].DID
+            nBODY = NOTE[indexPath.row].body
+            nTITLE = NOTE[indexPath.row].title
+            performSegue(withIdentifier: "notes", sender: nil)
+            
+        case "fertilizer":
+            docID = NOTE[indexPath.row].DID
+            performSegue(withIdentifier: "fertilizer", sender: nil)
+            
+            
+        default:
+            print("no cell selected...;)")
+        }
     }
-    */
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "notes" {
+            let secondVC = segue.destination as! NotesViewController
+            secondVC.edit = true
+            secondVC.ID = docID
+            secondVC.noteBODY = nBODY
+            secondVC.noteTITLE = nTITLE
+        }
+        if segue.identifier == "fertilizer" {
+            let secondVC = segue.destination as! FertilzationViewController
+            secondVC.edit = true
+            secondVC.ID = docID
+        }
+    }
+    
     
 
 }

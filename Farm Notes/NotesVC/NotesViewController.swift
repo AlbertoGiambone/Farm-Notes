@@ -25,6 +25,11 @@ class NotesViewController: UIViewController, UITextViewDelegate {
     
     var userID: String?
     
+    var edit = false
+    var ID: String?
+    var noteBODY: String?
+    var noteTITLE: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,10 +37,18 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
+        
+        if edit == false {
         noteBody.delegate = self
         noteBody.text = "Note..."
         noteBody.textColor = UIColor.lightGray
-         
+        }else{
+            noteBody.delegate = self
+            noteBody.text = noteBODY
+            noteTitle.text = noteTITLE
+            //noteBody.textColor = UIColor.lightGray
+            
+        }
     }
     
     //MARK: TEXVIEW placeholder being editing

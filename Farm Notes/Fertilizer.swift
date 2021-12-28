@@ -13,6 +13,7 @@ struct FertilizationNote {
     var title: String
     var fertNotes: String
     var fertDate: Date
+    var distribution: String
     var UID: String
     var DID: String
     
@@ -23,6 +24,7 @@ struct FertilizationNote {
             "title": title,
             "fertNotes": fertNotes,
             "fertDate": fertDate,
+            "distribution": distribution,
             "UID": UID,
             "DID": DID
         
@@ -32,28 +34,4 @@ struct FertilizationNote {
 
 }
 
-
-struct FertDistribution {
-    
-    var N: String
-    var P: String
-    var K: String
-    var kg: String
-    var fertDate: Date
-    var UID: String
-    var DID: String
-    
-    var dict: [String: Any] {
-        return[
-        
-            "N": N,
-            "P": P,
-            "K": K,
-            "kg": kg,
-            "fertDate": fertDate,
-            "UID": UID,
-            "DID": DID
-        ]
-    }
-}
 

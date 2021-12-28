@@ -7,8 +7,9 @@
 
 import UIKit
 import Firebase
+import Foundation
 
-class FertilzationViewController: UIViewController, UITextViewDelegate {
+class FertilzationViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     
     //MARK: Connection
@@ -25,6 +26,9 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
     
     var userID: String?
     
+    var edit = false
+    var ID: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +40,11 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
         fertNote.text = "Note..."
         fertNote.textColor = UIColor.lightGray
         
-       // table.delegate = self
-       // table.dataSource = self
+        table.delegate = self
+        table.dataSource = self
+        
+        
+        
         
     }
     
@@ -61,10 +68,11 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
     
     //MARK: Action
     
+    var FertArray = [String]()
     
     let db = Firestore.firestore()
     
-    @IBAction func plusButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func plusButtonTapped(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "New Fertilization", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -91,14 +99,9 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
             todayFormatter.dateStyle = .short
             let now = todayFormatter.string(from: todayDate)
             
-            self.db.collection("FertilizationUnit").addDocument(data: ["type": String("Fertilization"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "N": String(N!), "P": String(P!), "K": String(K!), "kg": String(kg!), "fertDate": String(now), "UID": String(self.userID!)
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    //print("Document added with ID: \(ref.documentID)")
-                    }
-                }
+            let newFert = String("\(now) \(N!) \(P!) \(K!) \(kg!)")
+            
+            self.FertArray.append(newFert)
             
             self.table.reloadData()
             }
@@ -114,6 +117,46 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
     }
     
     
+    //MARK: DoneBUTTON tapped
+    
+    @IBAction func DoneButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let todayDate = Date()
+        let todayFormatter = DateFormatter()
+        todayFormatter.dateStyle = .short
+        let now = todayFormatter.string(from: todayDate)
+        
+        self.db.collection("FertilizationNote").addDocument(data: ["type": String("Fertilization"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "fertDate": String(now), "distribution": FertArray, "UID": String(self.userID!)
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                //print("Document added with ID: \(ref.documentID)")
+                }
+            }
+        
+    
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    //MARK: SPLIT ARRAY IN SINGLE WORDS OR VALUE SEPARATED BY WHATEVER
+    
+    
+    func splitArray() {
+    
+    let myARRAY = "Joghy Ginger Gatti"
+    let SplittedArray = myARRAY.components(separatedBy: " ")
+    
+    let BlackCat = SplittedArray[0]
+    let RedCat = SplittedArray[1]
+    let Animals = SplittedArray[2]
+        
+        print("\(BlackCat), \(RedCat), \(Animals)")
+    }
+    
+    
+    
     //MARK: Firestore Call
     
   //  func FirestoreCall() {
@@ -121,7 +164,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
   //  }
     
     
-  /*
+  
     //MARK: Tableview func
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -129,13 +172,32 @@ class FertilzationViewController: UIViewController, UITextViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return
+        return FertArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CELLFertilizerTableViewCell
+        
+        let thisValue = FertArray[indexPath.row]
+        let decpomponedArray = thisValue.components(separatedBy: " ")
+        
+        let date = decpomponedArray[0]
+        let N = decpomponedArray[1]
+        let P = decpomponedArray[2]
+        let K = decpomponedArray[3]
+        let kg = decpomponedArray[4]
+        
+        print("QUESTO E' N: \(N)")
+        
+        cell.Fdate.text = String(date)
+        cell.Nlabel.text = String(N)
+        cell.Plabel.text = String(P)
+        cell.Klabel.text = String(K)
+        cell.KGlabel.text = String("\(kg) Kg/Ha")
+        
+        return cell
     }
-   */
+   
 }
     
     
