@@ -172,7 +172,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             cell.bodyLabel.text = String(NOTE[indexPath.row].body)
             cell.typeImage.image = UIImage(named: "CustomIcon")
             
-        case "Fertilization":
+        case "FertilizationNote":
             cell.titolo.text = String(NOTE[indexPath.row].title)
             cell.datelabel.text = String(stringDate)
             cell.bodyLabel.text = String(NOTE[indexPath.row].body)
@@ -209,13 +209,27 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             nTITLE = NOTE[indexPath.row].title
             performSegue(withIdentifier: "notes", sender: nil)
             
-        case "Fertilization":
+        case "FertilizationNote":
             docID = NOTE[indexPath.row].DID
             performSegue(withIdentifier: "fertilizer", sender: nil)
             
             
         default:
             print("no cell selected...;)")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let type = NOTE[indexPath.row].type
+            let doc = NOTE[indexPath.row].DID
+            
+            db.collection(type).document(doc).delete()
+            NOTE.remove(at: indexPath.row)
+            table.deleteRows(at: [indexPath], with: .fade)
+            
+            table.reloadData()
         }
     }
     

@@ -156,7 +156,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
             
             let newFert = String("\(now) \(N!) \(P!) \(K!) \(kg!)")
             
-            self.SaveFertArray.append(newFert)
+            self.FirestoreArray.append(newFert)
             
             self.table.reloadData()
             }
@@ -181,7 +181,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         todayFormatter.dateStyle = .short
         let now = todayFormatter.string(from: todayDate)
         
-        self.db.collection("FertilizationNote").addDocument(data: ["type": String("Fertilization"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "fertDate": String(now), "distribution": FertArray, "UID": String(self.userID!)
+        self.db.collection("FertilizationNote").addDocument(data: ["type": String("FertilizationNote"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "fertDate": String(now), "distribution": FertArray, "UID": String(self.userID!)
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
