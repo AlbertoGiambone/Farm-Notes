@@ -59,6 +59,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("EDIT: \(edit)")
         self.navigationController?.navigationBar.tintColor = .systemPink
   
         table.delegate = self

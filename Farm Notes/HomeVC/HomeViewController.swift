@@ -21,9 +21,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     @IBOutlet weak var spraying: RoundButton!
     
-    @IBOutlet weak var maintenance: RoundButton!
-    
-    @IBOutlet weak var thingsToBuy: RoundButton!
+
     
     
     //MARK: Firestore
@@ -71,9 +69,31 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["fertDate"] as! String)!
                     if y == userID {
-                        let f = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["fertNotes"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        let f = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as? String ?? "", body: documet.data()["fertNotes"] as? String ?? "", date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(f)
+                    }
+                    
+                }
+            }
+        }
+        
+        db.collection("SprayerNote").getDocuments() { [self](querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting Firestore data: \(err)")
+            }else{
+                for documet in querySnapshot!.documents {
+                
+                    let y = documet.data()["UID"] as! String
+                    
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .short
+                    let d: Date = formatter.date(from: documet.data()["date"] as! String)!
+                    if y == userID {
+                        let r = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as? String ?? "", body: documet.data()["body"] as? String ?? "", date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        
+                        self.NOTE.append(r)
                     }
                     
                 }
@@ -125,7 +145,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
-        run(after: 1){
+        run(after: 0){
             self.fetchFirestore()
         }
         
@@ -201,6 +221,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     var docID: String?
     var nBODY: String?
     var nTITLE: String?
+    var ifEDIT = false
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -209,17 +230,19 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         switch cell {
             
         case "notes":
-            
+            ifEDIT = true
             docID = NOTE[indexPath.row].DID
             nBODY = NOTE[indexPath.row].body
             nTITLE = NOTE[indexPath.row].title
             performSegue(withIdentifier: "notes", sender: nil)
             
         case "FertilizationNote":
+            ifEDIT = true
             docID = NOTE[indexPath.row].DID
             performSegue(withIdentifier: "fertilizer", sender: nil)
             
         case "SprayerNote":
+            ifEDIT = true
             docID = NOTE[indexPath.row].DID
             nBODY = NOTE[indexPath.row].body
             nTITLE = NOTE[indexPath.row].title
@@ -249,19 +272,19 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "notes" {
             let secondVC = segue.destination as! NotesViewController
-            secondVC.edit = true
+            secondVC.edit = ifEDIT
             secondVC.ID = docID
             secondVC.noteBODY = nBODY
             secondVC.noteTITLE = nTITLE
         }
         if segue.identifier == "fertilizer" {
             let secondVC = segue.destination as! FertilzationViewController
-            secondVC.edit = true
+            secondVC.edit = ifEDIT
             secondVC.ID = docID
         }
         if segue.identifier == "sprayer" {
             let secondVC = segue.destination as! SprayerViewController
-            secondVC.edit = true
+            secondVC.edit = ifEDIT
             secondVC.ID = docID
             secondVC.noteBODY = nBODY
             secondVC.noteTITLE = nTITLE

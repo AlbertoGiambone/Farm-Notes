@@ -33,6 +33,7 @@ class SprayerViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("EDIT: \(edit)")
         self.navigationController?.navigationBar.tintColor = .systemIndigo
 
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
@@ -72,6 +73,8 @@ class SprayerViewController: UIViewController, UITextViewDelegate {
     
     //MARK: Action
     
+    let db = Firestore.firestore()
+    
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         
         let db = Firestore.firestore()
@@ -83,8 +86,8 @@ class SprayerViewController: UIViewController, UITextViewDelegate {
         
         if edit == false {
             
-            db.collection("SprayerNote").addDocument(data: ["type": String("SprayerNote"), "title": String(sprayerTitle.text!),
-                "body": String(sprayerBody.text),
+            self.db.collection("SprayerNote").addDocument(data: ["type": String("SprayerNote"), "title": String(sprayerTitle.text ?? ""),
+                "body": String(sprayerBody.text ?? ""),
                 "date": String(now),
                 "UID": String(userID!)
             ]) { err in

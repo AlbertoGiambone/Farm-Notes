@@ -121,8 +121,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TB8-oG-KpN">
-                                <rect key="frame" x="26" y="693" width="348" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TB8-oG-KpN">
+                                <rect key="frame" x="33" y="697" width="348" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ULL-fR-MsN">
                                         <rect key="frame" x="0.0" y="0.0" width="348" height="30"/>
@@ -190,43 +190,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-NP-R4b">
-                                        <rect key="frame" x="62" y="50" width="224" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdS-sl-9mZ" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="J6H-pH-2xH"/>
-                                                    <constraint firstAttribute="height" constant="30" id="q2e-KY-YWL"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Maintenace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKb-YS-mwf" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="0.0" width="100" height="30"/>
-                                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="cEW-hd-aWL"/>
-                                                    <constraint firstAttribute="width" constant="100" id="jya-fV-X0Y"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Things to buy"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                        </subviews>
+                                        <rect key="frame" x="124" y="30" width="100" height="50"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -238,23 +202,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TB8-oG-KpN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-7" id="6P9-cU-sxA"/>
+                            <constraint firstItem="TB8-oG-KpN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6P9-cU-sxA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ch-yX-jhJ" secondAttribute="trailing" constant="20" id="7f7-tG-FpS"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="leading" secondItem="4nf-VJ-F7t" secondAttribute="leading" id="Bq4-aL-2YX"/>
                             <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gah-CT-XXU"/>
                             <constraint firstItem="4nf-VJ-F7t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="K5c-KT-Zud"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="4nf-VJ-F7t" secondAttribute="bottom" constant="38" id="O6z-OA-Bho"/>
-                            <constraint firstItem="TB8-oG-KpN" firstAttribute="top" secondItem="6ch-yX-jhJ" secondAttribute="bottom" constant="32" id="a4g-9z-vMQ"/>
+                            <constraint firstItem="TB8-oG-KpN" firstAttribute="top" secondItem="6ch-yX-jhJ" secondAttribute="bottom" constant="36" id="a4g-9z-vMQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hMn-2B-7kE"/>
                     <connections>
                         <outlet property="custom" destination="Py1-Ey-pob" id="Fdh-cp-GwP"/>
                         <outlet property="fertilization" destination="0Nr-SY-fFV" id="9aA-12-MTr"/>
-                        <outlet property="maintenance" destination="QdS-sl-9mZ" id="j5j-bZ-q4U"/>
                         <outlet property="spraying" destination="ho5-iP-g2c" id="ibO-A5-54u"/>
                         <outlet property="table" destination="6ch-yX-jhJ" id="r1C-6c-CY3"/>
-                        <outlet property="thingsToBuy" destination="dKb-YS-mwf" id="9bm-og-HaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -576,12 +538,6 @@
         <designable name="Py1-Ey-pob">
             <size key="intrinsicContentSize" width="42" height="26"/>
         </designable>
-        <designable name="QdS-sl-9mZ">
-            <size key="intrinsicContentSize" width="65" height="26"/>
-        </designable>
-        <designable name="dKb-YS-mwf">
-            <size key="intrinsicContentSize" width="76" height="26"/>
-        </designable>
         <designable name="ho5-iP-g2c">
             <size key="intrinsicContentSize" width="48" height="26"/>
         </designable>
@@ -604,14 +560,8 @@
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
