@@ -183,6 +183,9 @@
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="Fmu-4k-17I" kind="show" id="wgM-oV-ais"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -312,6 +315,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2U-Jm-MLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1818.840579710145" y="79.6875"/>
+        </scene>
+        <!--Sprayer View Controller-->
+        <scene sceneID="0WZ-Nw-kjD">
+            <objects>
+                <viewController id="Fmu-4k-17I" customClass="SprayerViewController" customModule="Farm_Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jvd-hK-9wB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-v6-TM3">
+                                <rect key="frame" x="20" y="104" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="J8S-ji-wU7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AK0-2K-CYH">
+                                <rect key="frame" x="20" y="160" width="374" height="342"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="342" id="nmV-aK-Jkj"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yaR-7M-zc4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hoB-v6-TM3" firstAttribute="top" secondItem="yaR-7M-zc4" secondAttribute="top" constant="16" id="1qZ-AF-EAy"/>
+                            <constraint firstItem="hoB-v6-TM3" firstAttribute="leading" secondItem="yaR-7M-zc4" secondAttribute="leading" constant="20" id="YTQ-EK-4fY"/>
+                            <constraint firstItem="yaR-7M-zc4" firstAttribute="trailing" secondItem="hoB-v6-TM3" secondAttribute="trailing" constant="20" id="Yev-B3-gsx"/>
+                            <constraint firstItem="yaR-7M-zc4" firstAttribute="trailing" secondItem="AK0-2K-CYH" secondAttribute="trailing" constant="20" id="bjV-Ve-nkP"/>
+                            <constraint firstItem="AK0-2K-CYH" firstAttribute="leading" secondItem="yaR-7M-zc4" secondAttribute="leading" constant="20" id="rx1-jb-XOu"/>
+                            <constraint firstItem="AK0-2K-CYH" firstAttribute="top" secondItem="hoB-v6-TM3" secondAttribute="bottom" constant="22" id="wTb-8D-Lje"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="orB-pf-cGe">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="SpU-0w-WcD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sprayerBody" destination="AK0-2K-CYH" id="BVm-Uf-9wv"/>
+                        <outlet property="sprayerTitle" destination="hoB-v6-TM3" id="XEE-8M-HGB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1I-L8-pZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737.68115942028987" y="867.85714285714278"/>
         </scene>
         <!--Fertilzation View Controller-->
         <scene sceneID="HNN-nn-lew">
