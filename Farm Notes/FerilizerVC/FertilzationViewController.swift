@@ -21,6 +21,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
     @IBOutlet weak var fertTitle: UITextField!
     
     
+    var FirestoreArray = [String]()
     
     func fetchFirestore() {
     let db = Firestore.firestore()
@@ -36,13 +37,15 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
                     if y == ID {
                     fertTitle.text = documet.data()["title"] as? String
                     fertNote.text = documet.data()["fertNotes"] as? String
-                    fertTITLEARRAY = documet.data()["distribution"] as! [String]
-                    print("FERTITLEARRAY:    \(fertTITLEARRAY)")
+                    FirestoreArray = ((documet.data()["distribution"] as? [String])!)
+                    print("FERTITLEARRAY:    \(FirestoreArray)")
                 }
                 
             }
+                
         }
     }
+        self.table.reloadData()
 }
     
     //MARK: LyfeCycle
@@ -57,9 +60,15 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.tintColor = .systemPink
+  
+        table.delegate = self
+        table.dataSource = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
-        
         
         if edit == false {
         fertNote.delegate = self
@@ -68,21 +77,30 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         }else{
             fertNote.delegate = self
             
-            fetchFirestore()
-                        
+            run(after: 1){
+                self.fetchFirestore()
+                self.table.reloadData()
+            }
+            run(after: 3){
+                self.table.reloadData()
+            }
+            
                        
         }
         
         
-        
-        
-        table.delegate = self
-        table.dataSource = self
-        
-        
-        
-        
     }
+    
+    //MARK: func for dispatch
+    
+    func run(after seconds: Int, completion: @escaping () -> Void) {
+        let deadLine = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: deadLine){
+            completion()
+        }
+    }
+    
+    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
 
@@ -104,7 +122,8 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
     
     //MARK: Action
     
-    var FertArray = [String]()
+    var FertArray = [FertModel]()
+    var SaveFertArray = [String]()
     
     let db = Firestore.firestore()
     
@@ -137,7 +156,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
             
             let newFert = String("\(now) \(N!) \(P!) \(K!) \(kg!)")
             
-            self.FertArray.append(newFert)
+            self.SaveFertArray.append(newFert)
             
             self.table.reloadData()
             }
@@ -208,28 +227,22 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FertArray.count
+        return FirestoreArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CELLFertilizerTableViewCell
         
-        let thisValue = FertArray[indexPath.row]
-        let decpomponedArray = thisValue.components(separatedBy: " ")
+        let FIRE = FirestoreArray[indexPath.row]
         
-        let date = decpomponedArray[0]
-        let N = decpomponedArray[1]
-        let P = decpomponedArray[2]
-        let K = decpomponedArray[3]
-        let kg = decpomponedArray[4]
+        let UUU = FIRE.components(separatedBy: " ")
+        print("THIS IS FIRE: \(FIRE)")
         
-        print("QUESTO E' N: \(N)")
-        
-        cell.Fdate.text = String(date)
-        cell.Nlabel.text = String(N)
-        cell.Plabel.text = String(P)
-        cell.Klabel.text = String(K)
-        cell.KGlabel.text = String("\(kg) Kg/Ha")
+        cell.Fdate.text = String(UUU[0])
+        cell.Nlabel.text = String(UUU[1])
+        cell.Plabel.text = String(UUU[2])
+        cell.Klabel.text = String(UUU[3])
+        cell.KGlabel.text = String("\(UUU[4]) Kg/Ha")
         
         return cell
     }
