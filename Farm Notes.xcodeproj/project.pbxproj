@@ -46,6 +46,7 @@
 		A08D74A82756BF8F005CBACE /* FertilzationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilzationViewController.swift; sourceTree = "<group>"; };
 		A08D74AB2756C395005CBACE /* Fertilizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fertilizer.swift; path = "Farm Notes/Fertilizer.swift"; sourceTree = SOURCE_ROOT; };
 		A0A3ABF2276DD82B008CE9BE /* WeightUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightUnit.swift; path = "Farm Notes/Services Files/WeightUnit.swift"; sourceTree = SOURCE_ROOT; };
+		A0B88EE6277D02FE007DFD67 /* Farm Notes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm Notes.entitlements"; sourceTree = "<group>"; };
 		A0D4BAC8277AFB08007043F5 /* CELLFertilizerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CELLFertilizerTableViewCell.swift; sourceTree = "<group>"; };
 		A0F08009274BE3AF001363DA /* Farm Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F0800C274BE3AF001363DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		A0F0800B274BE3AF001363DA /* Farm Notes */ = {
 			isa = PBXGroup;
 			children = (
+				A0B88EE6277D02FE007DFD67 /* Farm Notes.entitlements */,
 				A0F0800C274BE3AF001363DA /* AppDelegate.swift */,
 				A0F0800E274BE3AF001363DA /* SceneDelegate.swift */,
 				A08D74AA2756BFA1005CBACE /* FerilizerVC */,
@@ -478,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Farm Notes/Farm Notes.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FWDSDKN998;
@@ -488,6 +491,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Farm Notes/Farm Notes.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FWDSDKN998;
@@ -518,6 +523,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
