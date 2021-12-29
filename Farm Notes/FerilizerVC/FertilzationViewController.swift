@@ -181,7 +181,9 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         todayFormatter.dateStyle = .short
         let now = todayFormatter.string(from: todayDate)
         
-        self.db.collection("FertilizationNote").addDocument(data: ["type": String("FertilizationNote"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "fertDate": String(now), "distribution": FertArray, "UID": String(self.userID!)
+        if edit == false {
+        
+        self.db.collection("FertilizationNote").addDocument(data: ["type": String("FertilizationNote"), "title": String(self.fertTitle.text ?? ""), "fertNotes": String(self.fertNote.text ?? ""), "fertDate": String(now), "distribution": FirestoreArray, "UID": String(self.userID!)
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -189,7 +191,22 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
                 //print("Document added with ID: \(ref.documentID)")
                 }
             }
-        
+        }else{
+            
+            let DOCREFERENCE = db.collection("FertilizationNote").document(ID!)
+            
+            DOCREFERENCE.setData([
+                "type": String("FertilizationNote"),
+                "title": String(self.fertTitle.text ?? ""),
+                "fertNotes": String(self.fertNote.text ?? ""),
+                "fertDate": String(now),
+                "distribution": FirestoreArray,
+                "UID": String(self.userID!)
+            ])
+            
+            
+            
+        }
     
         navigationController?.popViewController(animated: true)
     }

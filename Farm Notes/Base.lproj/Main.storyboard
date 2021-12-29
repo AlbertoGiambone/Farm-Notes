@@ -184,7 +184,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="Fmu-4k-17I" kind="show" id="wgM-oV-ais"/>
+                                                    <segue destination="Fmu-4k-17I" kind="show" identifier="sprayer" id="wgM-oV-ais"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -355,7 +355,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="orB-pf-cGe">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="SpU-0w-WcD"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="SpU-0w-WcD">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Fmu-4k-17I" id="oiA-0y-Blw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="sprayerBody" destination="AK0-2K-CYH" id="BVm-Uf-9wv"/>

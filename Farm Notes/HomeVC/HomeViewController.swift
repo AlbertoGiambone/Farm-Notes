@@ -178,6 +178,12 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             cell.bodyLabel.text = String(NOTE[indexPath.row].body)
             cell.typeImage.image = UIImage(named: "FertilizerIcon")
             
+        case "SprayerNote":
+            cell.titolo.text = String(NOTE[indexPath.row].title)
+            cell.datelabel.text = String(stringDate)
+            cell.bodyLabel.text = String(NOTE[indexPath.row].body)
+            cell.typeImage.image = UIImage(named: "SprayerIcon")
+            
         default:
             print("no notes previously added...")
             
@@ -213,6 +219,11 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             docID = NOTE[indexPath.row].DID
             performSegue(withIdentifier: "fertilizer", sender: nil)
             
+        case "SprayerNote":
+            docID = NOTE[indexPath.row].DID
+            nBODY = NOTE[indexPath.row].body
+            nTITLE = NOTE[indexPath.row].title
+            performSegue(withIdentifier: "sprayer", sender: nil)
             
         default:
             print("no cell selected...;)")
@@ -247,6 +258,13 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             let secondVC = segue.destination as! FertilzationViewController
             secondVC.edit = true
             secondVC.ID = docID
+        }
+        if segue.identifier == "sprayer" {
+            let secondVC = segue.destination as! SprayerViewController
+            secondVC.edit = true
+            secondVC.ID = docID
+            secondVC.noteBODY = nBODY
+            secondVC.noteTITLE = nTITLE
         }
     }
     

@@ -37,7 +37,6 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
-        
         if edit == false {
         noteBody.delegate = self
         noteBody.text = "Note..."
@@ -99,20 +98,16 @@ class NotesViewController: UIViewController, UITextViewDelegate {
                 }
             }
         }else{
-            db.collection("notes").addDocument(data: ["type": String("notes"), "title": String(noteTitle.text!),
-                "body": String(noteBody.text),
-                "date": String(now),
-                "UID": String(userID!),
-                "DID": String(ID!)
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    //print("Document added with ID: \(ref.documentID)")
-                    }
-                }
             
+            let DOCREFERENCE = db.collection("notes").document(ID!)
             
+            DOCREFERENCE.setData([
+                "type": String("notes"), "title": String(noteTitle.text!),
+                    "body": String(noteBody.text),
+                    "date": String(now),
+                    "UID": String(userID!),
+                    "DID": String(ID!)
+            ])
             
         }
         
