@@ -121,94 +121,81 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TB8-oG-KpN">
-                                <rect key="frame" x="33" y="697" width="348" height="80"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ULL-fR-MsN">
-                                        <rect key="frame" x="0.0" y="0.0" width="348" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Py1-Ey-pob" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="dC2-yF-V0H"/>
-                                                    <constraint firstAttribute="width" constant="100" id="oe3-tV-ac5"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Custom"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="FKN-f3-nmp" kind="show" identifier="notes" id="anb-au-ngm"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nr-SY-fFV" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="0.0" width="100" height="30"/>
-                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="TJA-BJ-0nA"/>
-                                                    <constraint firstAttribute="height" constant="30" id="aEi-E8-c0z"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Fertilization"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="b8z-0F-aXB" kind="show" identifier="fertilizer" id="JBY-Vy-G9X"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-iP-g2c" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
-                                                <rect key="frame" x="248" y="0.0" width="100" height="30"/>
-                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="BXw-dM-feT"/>
-                                                    <constraint firstAttribute="width" constant="100" id="eaB-EK-P9k"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="12"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Spraying"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="Fmu-4k-17I" kind="show" identifier="sprayer" id="wgM-oV-ais"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-NP-R4b">
-                                        <rect key="frame" x="124" y="30" width="100" height="50"/>
-                                    </stackView>
-                                </subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Py1-Ey-pob" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
+                                <rect key="frame" x="20" y="772" width="100" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="IFi-PO-T0t"/>
-                                    <constraint firstAttribute="width" constant="348" id="o0f-IE-gc7"/>
+                                    <constraint firstAttribute="height" constant="35" id="dC2-yF-V0H"/>
+                                    <constraint firstAttribute="width" constant="100" id="oe3-tV-ac5"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Custom"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="FKN-f3-nmp" kind="show" identifier="notes" id="anb-au-ngm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nr-SY-fFV" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
+                                <rect key="frame" x="157" y="772" width="100" height="35"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="TJA-BJ-0nA"/>
+                                    <constraint firstAttribute="height" constant="35" id="aEi-E8-c0z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Fertilization"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="b8z-0F-aXB" kind="show" identifier="fertilizer" id="JBY-Vy-G9X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-iP-g2c" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
+                                <rect key="frame" x="294" y="772" width="100" height="35"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="BXw-dM-feT"/>
+                                    <constraint firstAttribute="width" constant="100" id="eaB-EK-P9k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Spraying"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Fmu-4k-17I" kind="show" identifier="sprayer" id="wgM-oV-ais"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TB8-oG-KpN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6P9-cU-sxA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Nr-SY-fFV" secondAttribute="bottom" constant="55" id="3fM-jz-Ue3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ch-yX-jhJ" secondAttribute="trailing" constant="20" id="7f7-tG-FpS"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="leading" secondItem="4nf-VJ-F7t" secondAttribute="leading" id="Bq4-aL-2YX"/>
                             <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gah-CT-XXU"/>
                             <constraint firstItem="4nf-VJ-F7t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="K5c-KT-Zud"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="4nf-VJ-F7t" secondAttribute="bottom" constant="38" id="O6z-OA-Bho"/>
-                            <constraint firstItem="TB8-oG-KpN" firstAttribute="top" secondItem="6ch-yX-jhJ" secondAttribute="bottom" constant="36" id="a4g-9z-vMQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ho5-iP-g2c" secondAttribute="bottom" constant="55" id="OBN-7w-8DE"/>
+                            <constraint firstItem="0Nr-SY-fFV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZ0-wF-CYc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ho5-iP-g2c" secondAttribute="trailing" constant="20" id="iT9-T2-nxA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Py1-Ey-pob" secondAttribute="bottom" constant="55" id="oJ6-aK-tBh"/>
+                            <constraint firstItem="Py1-Ey-pob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pE0-xl-mrb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hMn-2B-7kE"/>
@@ -443,35 +430,36 @@
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gy-dC-UKF">
-                                <rect key="frame" x="192" y="762" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAg-sm-cBX">
+                                <rect key="frame" x="187" y="775" width="40" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="WU3-le-JWd"/>
-                                    <constraint firstAttribute="height" constant="30" id="qVg-ei-c9b"/>
+                                    <constraint firstAttribute="height" constant="35" id="V9T-J7-0nD"/>
+                                    <constraint firstAttribute="width" constant="40" id="kmz-3a-TRN"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
-                                    <imageReference key="image" image="note.text.badge.plus" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" ">
+                                    <backgroundConfiguration key="background" cornerRadius="5" imageContentMode="scaleToFill">
+                                        <imageReference key="image" image="note.text.badge.plus" catalog="system" symbolScale="large"/>
+                                    </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="plusButtonTapped:" destination="b8z-0F-aXB" eventType="touchUpInside" id="re8-XD-l9S"/>
+                                    <action selector="plusButtonTapped:" destination="b8z-0F-aXB" eventType="touchUpInside" id="jQw-60-GzN"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qyO-1T-BOI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2Gy-dC-UKF" firstAttribute="centerX" secondItem="8XG-aT-hzA" secondAttribute="centerX" id="0Ih-1S-0Cp"/>
                             <constraint firstItem="vTj-pJ-2pc" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="0zN-xO-ogg"/>
                             <constraint firstItem="rXn-X2-Oix" firstAttribute="top" secondItem="qyO-1T-BOI" secondAttribute="top" constant="11" id="1us-tX-fwo"/>
+                            <constraint firstItem="rAg-sm-cBX" firstAttribute="centerX" secondItem="8XG-aT-hzA" secondAttribute="centerX" id="2Jj-pO-kyy"/>
                             <constraint firstItem="vTj-pJ-2pc" firstAttribute="top" secondItem="qyO-1T-BOI" secondAttribute="top" constant="53" id="6Em-uI-mB6"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="bottom" secondItem="Agf-RH-W7e" secondAttribute="bottom" constant="129" id="D8p-hH-Pa3"/>
-                            <constraint firstItem="qyO-1T-BOI" firstAttribute="bottom" secondItem="2Gy-dC-UKF" secondAttribute="bottom" constant="70" id="JPI-xN-TMP"/>
                             <constraint firstItem="Agf-RH-W7e" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="LHF-Yn-Hnk"/>
+                            <constraint firstItem="qyO-1T-BOI" firstAttribute="bottom" secondItem="rAg-sm-cBX" secondAttribute="bottom" constant="52" id="OJC-y3-bAn"/>
                             <constraint firstItem="rXn-X2-Oix" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="W3B-80-34R"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="rXn-X2-Oix" secondAttribute="trailing" constant="20" id="hQc-G0-dh1"/>
-                            <constraint firstItem="2Gy-dC-UKF" firstAttribute="top" secondItem="Agf-RH-W7e" secondAttribute="bottom" constant="29" id="i84-lK-n9E"/>
                             <constraint firstItem="Agf-RH-W7e" firstAttribute="top" secondItem="vTj-pJ-2pc" secondAttribute="bottom" constant="18" id="jYf-A7-70V"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="vTj-pJ-2pc" secondAttribute="trailing" constant="20" id="rwG-Am-T5x"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="Agf-RH-W7e" secondAttribute="trailing" constant="20" id="tMo-F4-HTS"/>
@@ -532,14 +520,14 @@
     </scenes>
     <designables>
         <designable name="0Nr-SY-fFV">
-            <size key="intrinsicContentSize" width="69" height="26"/>
+            <size key="intrinsicContentSize" width="81" height="29"/>
         </designable>
         <designable name="0vU-4j-kqf"/>
         <designable name="Py1-Ey-pob">
-            <size key="intrinsicContentSize" width="42" height="26"/>
+            <size key="intrinsicContentSize" width="49" height="29"/>
         </designable>
         <designable name="ho5-iP-g2c">
-            <size key="intrinsicContentSize" width="48" height="26"/>
+            <size key="intrinsicContentSize" width="56" height="29"/>
         </designable>
     </designables>
     <resources>

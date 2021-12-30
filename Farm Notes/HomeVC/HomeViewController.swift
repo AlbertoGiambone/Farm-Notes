@@ -42,12 +42,12 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                     
                     let y = documet.data()["UID"] as! String
                     
+                    if y == userID {
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
                     
-                    if y == userID {
-                        let u = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as! String, body: documet.data()["body"] as! String, date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
+                        let u = HomeTV(type: documet.data()["type"] as? String ?? "", title: documet.data()["title"] as? String ?? "", body: documet.data()["body"] as? String ?? "", date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(u)
                     }
@@ -65,10 +65,11 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                 
                     let y = documet.data()["UID"] as! String
                     
+                    if y == userID {
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["fertDate"] as! String)!
-                    if y == userID {
+                    
                         let f = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as? String ?? "", body: documet.data()["fertNotes"] as? String ?? "", date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(f)
@@ -87,15 +88,17 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                 
                     let y = documet.data()["UID"] as! String
                     
+                    if y == userID {
+                        
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
-                    if y == userID {
+                    
                         let r = HomeTV(type: documet.data()["type"] as! String, title: documet.data()["title"] as? String ?? "", body: documet.data()["body"] as? String ?? "", date: d, UID: documet.data()["UID"] as! String, DID: documet.documentID)
                         
                         self.NOTE.append(r)
                     }
-                    
+                
                 }
             }
         }
