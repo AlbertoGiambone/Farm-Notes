@@ -64,7 +64,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
   
         table.delegate = self
         table.dataSource = self
-        
+        table.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,11 +78,11 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         }else{
             fertNote.delegate = self
             
-            run(after: 1){
+            
                 self.fetchFirestore()
-                self.table.reloadData()
-            }
-            run(after: 3){
+                
+            
+            run(after: 1){
                 self.table.reloadData()
             }
             

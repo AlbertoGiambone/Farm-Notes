@@ -125,7 +125,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         table.delegate = self
         table.dataSource = self
-        
+        table.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -148,11 +148,10 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
-        run(after: 0){
-            self.fetchFirestore()
-        }
         
-        run(after: 2){
+            self.fetchFirestore()
+        
+        run(after: 1){
             
             self.NOTE.sort(by:{$0.date > $1.date})
             self.table.reloadData()
@@ -293,6 +292,11 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             secondVC.noteTITLE = nTITLE
         }
     }
+    
+    
+    //MARK: Action
+    
+    
     
     
 

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="20" y="166" width="374" height="495"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="495" id="5lu-BP-d0I"/>
+                                    <constraint firstAttribute="height" constant="495" id="wdC-ot-OHf"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="kh2-vu-7QY" customClass="CELLTableViewCell" customModule="Farm_Notes" customModuleProvider="target">
@@ -114,8 +114,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farm Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nf-VJ-F7t">
                                 <rect key="frame" x="20" y="88" width="226" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="1kW-Im-FAP"/>
-                                    <constraint firstAttribute="width" constant="226" id="HbZ-KL-wxx"/>
+                                    <constraint firstAttribute="width" constant="226" id="hUE-5Z-B4Y"/>
+                                    <constraint firstAttribute="height" constant="40" id="jHV-ID-81n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -138,7 +138,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="FKN-f3-nmp" kind="show" identifier="notes" id="anb-au-ngm"/>
+                                    <segue destination="FKN-f3-nmp" kind="show" id="0xZ-Ji-jHe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nr-SY-fFV" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
@@ -158,7 +158,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="b8z-0F-aXB" kind="show" identifier="fertilizer" id="JBY-Vy-G9X"/>
+                                    <segue destination="b8z-0F-aXB" kind="show" id="Tqv-K1-pu1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-iP-g2c" customClass="RoundButton" customModule="Farm_Notes" customModuleProvider="target">
@@ -178,7 +178,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Fmu-4k-17I" kind="show" identifier="sprayer" id="wgM-oV-ais"/>
+                                    <segue destination="Fmu-4k-17I" kind="show" id="2cK-sr-MQc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -186,16 +186,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Nr-SY-fFV" secondAttribute="bottom" constant="55" id="3fM-jz-Ue3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ch-yX-jhJ" secondAttribute="trailing" constant="20" id="7f7-tG-FpS"/>
-                            <constraint firstItem="6ch-yX-jhJ" firstAttribute="leading" secondItem="4nf-VJ-F7t" secondAttribute="leading" id="Bq4-aL-2YX"/>
-                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gah-CT-XXU"/>
-                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="K5c-KT-Zud"/>
-                            <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="4nf-VJ-F7t" secondAttribute="bottom" constant="38" id="O6z-OA-Bho"/>
+                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3xC-NV-Em5"/>
+                            <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="4nf-VJ-F7t" secondAttribute="bottom" constant="38" id="4eM-XN-MrQ"/>
+                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CdZ-zY-E3O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ho5-iP-g2c" secondAttribute="bottom" constant="55" id="OBN-7w-8DE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ch-yX-jhJ" secondAttribute="trailing" constant="20" id="SSV-D6-pXP"/>
                             <constraint firstItem="0Nr-SY-fFV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZ0-wF-CYc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ho5-iP-g2c" secondAttribute="trailing" constant="20" id="iT9-T2-nxA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Py1-Ey-pob" secondAttribute="bottom" constant="55" id="oJ6-aK-tBh"/>
                             <constraint firstItem="Py1-Ey-pob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pE0-xl-mrb"/>
+                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uH2-E6-pHk"/>
+                            <constraint firstItem="6ch-yX-jhJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xzu-LH-h8p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hMn-2B-7kE"/>
@@ -204,6 +205,9 @@
                         <outlet property="fertilization" destination="0Nr-SY-fFV" id="9aA-12-MTr"/>
                         <outlet property="spraying" destination="ho5-iP-g2c" id="ibO-A5-54u"/>
                         <outlet property="table" destination="6ch-yX-jhJ" id="r1C-6c-CY3"/>
+                        <segue destination="FKN-f3-nmp" kind="show" identifier="notes" id="eu4-t3-haY"/>
+                        <segue destination="Fmu-4k-17I" kind="show" identifier="sprayer" id="FLj-5y-MAC"/>
+                        <segue destination="b8z-0F-aXB" kind="show" identifier="fertilizer" id="3R3-5F-u6S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -530,6 +534,11 @@
             <size key="intrinsicContentSize" width="56" height="29"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="3R3-5F-u6S"/>
+        <segue reference="FLj-5y-MAC"/>
+        <segue reference="eu4-t3-haY"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="backward.frame.fill" catalog="system" width="128" height="93"/>
         <image name="note.text.badge.plus" catalog="system" width="128" height="108"/>
