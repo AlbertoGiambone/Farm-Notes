@@ -39,6 +39,9 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
                     fertNote.text = documet.data()["fertNotes"] as? String
                     FirestoreArray = ((documet.data()["distribution"] as? [String])!)
                     print("FERTITLEARRAY:    \(FirestoreArray)")
+                        
+                        var splitted = FirestoreArray.split(separator: ",")
+                        print(splitted)
                 }
                 
             }
@@ -65,6 +68,9 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         table.delegate = self
         table.dataSource = self
         table.reloadData()
+        
+        table.layer.cornerRadius = 15
+        table.backgroundColor = UIColor.systemGray5
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -257,14 +263,45 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         print("THIS IS FIRE: \(FIRE)")
         
         cell.Fdate.text = String(UUU[0])
-        cell.Nlabel.text = String(UUU[1])
-        cell.Plabel.text = String(UUU[2])
-        cell.Klabel.text = String(UUU[3])
+        cell.Nlabel.text = String("\(UUU[1]) N")
+        cell.Plabel.text = String("\(UUU[2]) P")
+        cell.Klabel.text = String("\(UUU[3]) K")
         cell.KGlabel.text = String("\(UUU[4]) Kg/Ha")
+        
+        cell.backgroundColor = UIColor.systemGray5
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            FirestoreArray.remove(at: indexPath.row)
+            
+            
+            let DOCREFERENCE = db.collection("FertilizationNote").document(ID!)
+            
+            DOCREFERENCE.updateData([
+                "distribution": FirestoreArray
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+            table.deleteRows(at: [indexPath], with: .fade)
+            
+            table.reloadData()
+            
+        }
+    }
+    
+    
 }
     
     

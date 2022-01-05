@@ -125,7 +125,13 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         table.delegate = self
         table.dataSource = self
-        table.reloadData()
+        
+        self.fetchFirestore()
+        run(after: 1){
+            
+            self.NOTE.sort(by:{$0.date > $1.date})
+            self.table.reloadData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -160,12 +166,50 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
     
     }
-    
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         NOTE.removeAll()
         sortedNOTE.removeAll()
     }
+    
+    
+    //MARK: LISTENER for Firestore
+    
+    func Listener() {
+    
+    db.collection("notes").addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                if (diff.type == .added) {
+                    
+                    let y = diff.document.data()["UID"] as! String
+                    
+                    if y == self.userID {
+                        
+                        let formatter = DateFormatter()
+                        formatter.dateStyle = .short
+                        let d: Date = formatter.date(from: diff.document.data()["date"] as! String)!
+                        
+                        let u = HomeTV(type: diff.document.data()["type"] as? String ?? "", title: diff.document.data()["title"] as? String ?? "", body: diff.document.data()["body"] as? String ?? "", date: d, UID: diff.document.data()["UID"] as! String, DID: diff.document.documentID)
+                        
+                        self.NOTE.append(u)
+                        
+                    }
+                    
+                }
+                if (diff.type == .modified) {
+                    print("Modified city: \(diff.document.data())")
+                }
+                
+            }
+        }
+    
+    }
+    
+    
     //Mark: tableview func
     
     func numberOfSections(in tableView: UITableView) -> Int {
