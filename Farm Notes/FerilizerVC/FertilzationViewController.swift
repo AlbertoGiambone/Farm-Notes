@@ -51,6 +51,13 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         self.table.reloadData()
 }
     
+    
+    //DoneButton
+    
+    @objc func doneClicked() {
+        view.endEditing(true)
+    }
+    
     //MARK: LyfeCycle
     
     var userID: String?
@@ -71,6 +78,18 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         
         table.layer.cornerRadius = 15
         table.backgroundColor = UIColor.systemGray5
+        
+        //MARK: toolbar
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
+        
+        toolBar.setItems([doneButton], animated: false)
+        
+        fertTitle.inputAccessoryView = toolBar
+        fertNote.inputAccessoryView = toolBar
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -262,7 +281,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         let UUU = FIRE.components(separatedBy: " ")
         print("THIS IS FIRE: \(FIRE)")
         
-        cell.Fdate.text = String(UUU[0])
+        cell.Fdate.text = String("  \(UUU[0])")
         cell.Nlabel.text = String("\(UUU[1]) N")
         cell.Plabel.text = String("\(UUU[2]) P")
         cell.Klabel.text = String("\(UUU[3]) K")

@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     var sortedNOTE = [HomeTV]()
     var fertNote = [FertilizationNote]()
     
-    func fetchFirestore() {
+    func fetchNotes() {
         
         db.collection("notes").getDocuments() { [self](querySnapshot, err) in
             
@@ -55,6 +55,10 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             
             }
         }
+        self.table.reloadData()
+    }
+    
+    func fetchFertilization () {
         
         db.collection("FertilizationNote").getDocuments() { [self](querySnapshot, err) in
             
@@ -78,6 +82,10 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                 }
             }
         }
+        self.table.reloadData()
+    }
+    
+    func fetchSprayer() {
         
         db.collection("SprayerNote").getDocuments() { [self](querySnapshot, err) in
             
@@ -106,6 +114,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     }
     
     
+    
     //MARK: func for dispatch
     
     func run(after seconds: Int, completion: @escaping () -> Void) {
@@ -126,12 +135,8 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         table.delegate = self
         table.dataSource = self
         
-        self.fetchFirestore()
-        run(after: 1){
-            
-            self.NOTE.sort(by:{$0.date > $1.date})
-            self.table.reloadData()
-        }
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -154,9 +159,10 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
-        
+        fetchNotes()
+        fetchFertilization()
+        fetchSprayer()
         run(after: 1){
-            self.Listener()
             self.NOTE.sort(by:{$0.date > $1.date})
             self.table.reloadData()
         }
@@ -168,100 +174,8 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     override func viewDidDisappear(_ animated: Bool) {
         NOTE.removeAll()
         sortedNOTE.removeAll()
-        detach()
     }
     
-    
-    //MARK: LISTENER for Firestore
-    
-    func Listener() {
-    
-    db.collection("notes").addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching snapshots: \(error!)")
-                return
-            }
-            snapshot.documentChanges.forEach { diff in
-                if (diff.type == .added) {
-                    
-                    let y = diff.document.data()["UID"] as! String
-                    
-                    if y == self.userID {
-                        
-                        let formatter = DateFormatter()
-                        formatter.dateStyle = .short
-                        let d: Date = formatter.date(from: diff.document.data()["date"] as! String)!
-                        
-                        let u = HomeTV(type: diff.document.data()["type"] as? String ?? "", title: diff.document.data()["title"] as? String ?? "", body: diff.document.data()["body"] as? String ?? "", date: d, UID: diff.document.data()["UID"] as! String, DID: diff.document.documentID)
-                        
-                        self.NOTE.append(u)
-                        
-                    }
-                    
-                }
-                
-            }
-        }
-        
-        db.collection("FertilizationNote").addSnapshotListener { querySnapshot, error in
-                guard let snapshot = querySnapshot else {
-                    print("Error fetching snapshots: \(error!)")
-                    return
-                }
-                snapshot.documentChanges.forEach { diff in
-                    if (diff.type == .added) {
-                        
-                        let y = diff.document.data()["UID"] as! String
-                        
-                        if y == self.userID {
-                        let formatter = DateFormatter()
-                        formatter.dateStyle = .short
-                            let d: Date = formatter.date(from: diff.document.data()["fertDate"] as! String)!
-                        
-                            let f = HomeTV(type: diff.document.data()["type"] as! String, title: diff.document.data()["title"] as? String ?? "", body: diff.document.data()["fertNotes"] as? String ?? "", date: d, UID: diff.document.data()["UID"] as! String, DID: diff.document.documentID)
-                            
-                            self.NOTE.append(f)
-                        
-                    }
-                    
-                }
-            }
-        
-        }
-    }
-    
-        //MARK: detach LISTENER
-        
-        func detach() {
-        
-        let listN = db.collection("notes").addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching snapshots: \(error!)")
-                return
-            }
-            snapshot.documentChanges.forEach { diff in
-                if (diff.type == .added) {
-                    print(diff.document.data())
-                }
-        
-                let listF = self.db.collection("FertilizationNote").addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching snapshots: \(error!)")
-                return
-            }
-            snapshot.documentChanges.forEach { diff in
-                if (diff.type == .added) {
-                    print(diff.document.data())
-                }
-            
-            listN.remove()
-            listF.remove()
-                    }
-                }
-            }
-        }
-    }
-        
     
     //Mark: tableview func
     
