@@ -331,15 +331,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Agf-RH-W7e">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Agf-RH-W7e">
                                 <rect key="frame" x="20" y="446" width="374" height="266"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="PQg-3I-B4A" customClass="CELLFertilizerTableViewCell" customModule="Farm_Notes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PQg-3I-B4A" id="Aud-KT-uRt">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLJ-WA-5OS">
@@ -461,22 +461,61 @@
                                     <action selector="plusButtonTapped:" destination="b8z-0F-aXB" eventType="touchUpInside" id="jQw-60-GzN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgS-vd-LFR">
+                                <rect key="frame" x="105" y="720" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="2Xm-9F-RqH"/>
+                                    <constraint firstAttribute="height" constant="21" id="dAp-Z5-6Uz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-lV-rlq">
+                                <rect key="frame" x="221" y="720" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="E2d-OE-kw6"/>
+                                    <constraint firstAttribute="width" constant="42" id="GPt-zT-ViH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frs-WM-gVZ">
+                                <rect key="frame" x="163" y="720" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CUK-Ho-2Im"/>
+                                    <constraint firstAttribute="width" constant="42" id="Hcc-Ey-DLT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qyO-1T-BOI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bIR-lV-rlq" firstAttribute="leading" secondItem="Frs-WM-gVZ" secondAttribute="trailing" constant="16" id="0EP-8G-IUg"/>
                             <constraint firstItem="vTj-pJ-2pc" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="0zN-xO-ogg"/>
                             <constraint firstItem="rXn-X2-Oix" firstAttribute="top" secondItem="qyO-1T-BOI" secondAttribute="top" constant="11" id="1us-tX-fwo"/>
                             <constraint firstItem="rAg-sm-cBX" firstAttribute="centerX" secondItem="8XG-aT-hzA" secondAttribute="centerX" id="2Jj-pO-kyy"/>
+                            <constraint firstItem="bIR-lV-rlq" firstAttribute="leading" secondItem="Frs-WM-gVZ" secondAttribute="trailing" constant="16" id="3a7-4v-v2E"/>
                             <constraint firstItem="vTj-pJ-2pc" firstAttribute="top" secondItem="qyO-1T-BOI" secondAttribute="top" constant="53" id="6Em-uI-mB6"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="bottom" secondItem="Agf-RH-W7e" secondAttribute="bottom" constant="150" id="D8p-hH-Pa3"/>
+                            <constraint firstItem="Frs-WM-gVZ" firstAttribute="top" secondItem="Agf-RH-W7e" secondAttribute="bottom" constant="8" symbolic="YES" id="Hqh-zW-JWn"/>
+                            <constraint firstItem="RgS-vd-LFR" firstAttribute="top" secondItem="Agf-RH-W7e" secondAttribute="bottom" constant="8" symbolic="YES" id="KXv-WR-IHu"/>
                             <constraint firstItem="Agf-RH-W7e" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="LHF-Yn-Hnk"/>
+                            <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="bIR-lV-rlq" secondAttribute="trailing" constant="151" id="N3I-8y-9y0"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="bottom" secondItem="rAg-sm-cBX" secondAttribute="bottom" constant="52" id="OJC-y3-bAn"/>
                             <constraint firstItem="rXn-X2-Oix" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="20" id="W3B-80-34R"/>
+                            <constraint firstItem="Frs-WM-gVZ" firstAttribute="leading" secondItem="RgS-vd-LFR" secondAttribute="trailing" constant="16" id="Zx9-eh-vtY"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="rXn-X2-Oix" secondAttribute="trailing" constant="20" id="hQc-G0-dh1"/>
                             <constraint firstItem="Agf-RH-W7e" firstAttribute="top" secondItem="vTj-pJ-2pc" secondAttribute="bottom" constant="41" id="jYf-A7-70V"/>
+                            <constraint firstItem="bIR-lV-rlq" firstAttribute="top" secondItem="Agf-RH-W7e" secondAttribute="bottom" constant="8" symbolic="YES" id="jyN-CW-Q6E"/>
+                            <constraint firstItem="RgS-vd-LFR" firstAttribute="leading" secondItem="qyO-1T-BOI" secondAttribute="leading" constant="105" id="m7m-ju-yET"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="vTj-pJ-2pc" secondAttribute="trailing" constant="20" id="rwG-Am-T5x"/>
                             <constraint firstItem="qyO-1T-BOI" firstAttribute="trailing" secondItem="Agf-RH-W7e" secondAttribute="trailing" constant="20" id="tMo-F4-HTS"/>
+                            <constraint firstItem="Frs-WM-gVZ" firstAttribute="leading" secondItem="RgS-vd-LFR" secondAttribute="trailing" constant="16" id="ybR-TE-iAF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bb8-vx-NxN">
