@@ -265,6 +265,10 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
   
     //MARK: Tableview func
     
+    var totalN: Int = 0
+    var totalP: Int = 0
+    var totalK: Int = 0
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -135,8 +135,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         table.delegate = self
         table.dataSource = self
         
-        
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
