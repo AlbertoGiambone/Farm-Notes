@@ -158,15 +158,19 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         let alert = UIAlertController(title: "New Fertilization", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Nitrogen"
+            textField.keyboardType = .numberPad
         }
         alert.addTextField { (textField) in
             textField.placeholder = "phosphorus"
+            textField.keyboardType = .numberPad
         }
         alert.addTextField { (textField) in
             textField.placeholder = "potassium"
+            textField.keyboardType = .numberPad
         }
         alert.addTextField { (textField) in
             textField.placeholder = "Kg/Ha"
+            textField.keyboardType = .numberPad
         }
         
         let action = UIAlertAction(title: "Save", style: .default)  { (_) in

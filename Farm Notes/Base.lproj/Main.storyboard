@@ -45,9 +45,9 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWY-h8-W9w">
-                                                    <rect key="frame" x="71" y="21" width="303" height="18"/>
+                                                    <rect key="frame" x="71" y="21" width="303" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="TBK-KR-nVc"/>
+                                                        <constraint firstAttribute="height" constant="20" id="TBK-KR-nVc"/>
                                                         <constraint firstAttribute="width" constant="303" id="gMB-eZ-Jdm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -91,7 +91,7 @@
                                                 <constraint firstItem="9a2-KA-Pph" firstAttribute="leading" secondItem="NtA-sU-OXQ" secondAttribute="leading" constant="71" id="Qqq-e1-gjT"/>
                                                 <constraint firstItem="0vU-4j-kqf" firstAttribute="top" secondItem="NtA-sU-OXQ" secondAttribute="top" id="Rs6-BT-Nvx"/>
                                                 <constraint firstAttribute="bottom" secondItem="0vU-4j-kqf" secondAttribute="bottom" constant="10" id="WBB-f1-xX1"/>
-                                                <constraint firstItem="9a2-KA-Pph" firstAttribute="top" secondItem="QWY-h8-W9w" secondAttribute="bottom" constant="8" symbolic="YES" id="hVn-Zs-paY"/>
+                                                <constraint firstItem="9a2-KA-Pph" firstAttribute="top" secondItem="QWY-h8-W9w" secondAttribute="bottom" constant="6" id="hVn-Zs-paY"/>
                                                 <constraint firstItem="OWe-30-eoz" firstAttribute="top" secondItem="NtA-sU-OXQ" secondAttribute="topMargin" id="lZz-dD-OOl"/>
                                                 <constraint firstItem="OWe-30-eoz" firstAttribute="leading" secondItem="NtA-sU-OXQ" secondAttribute="leadingMargin" id="osX-iz-s1J"/>
                                                 <constraint firstItem="0vU-4j-kqf" firstAttribute="leading" secondItem="NtA-sU-OXQ" secondAttribute="leading" id="wm6-Sr-hwx"/>
