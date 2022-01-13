@@ -136,6 +136,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         table.dataSource = self
         
     }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         
@@ -157,10 +158,12 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
-        fetchNotes()
-        fetchFertilization()
-        fetchSprayer()
         run(after: 1){
+            self.fetchNotes()
+            self.fetchFertilization()
+            self.fetchSprayer()
+        }
+        run(after: 2){
             self.NOTE.sort(by:{$0.date > $1.date})
             self.table.reloadData()
         }
