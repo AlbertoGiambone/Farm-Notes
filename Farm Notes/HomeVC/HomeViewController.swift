@@ -135,8 +135,27 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         table.delegate = self
         table.dataSource = self
         
+        table.reloadData()
+        //ifNotLoad()
     }
     
+    /*
+    func ifNotLoad(){
+        
+        print("\(table.numberOfRows(inSection: 0)) QUESTE SONO LE RIGHE!!")
+        NOTE.removeAll()
+        if table.numberOfRows(inSection: 0) < 1 {
+            self.fetchNotes()
+            self.fetchFertilization()
+            self.fetchSprayer()
+        
+        
+            self.NOTE.sort(by:{$0.date > $1.date})
+            self.table.reloadData()
+        }
+        print("FIRESTORE DATA NOT FETCH!!!")
+    }
+    */
 
     override func viewWillAppear(_ animated: Bool) {
         
@@ -158,20 +177,24 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
-        run(after: 1){
+        
+        let globalQueue = DispatchQueue.global()
+        
+        globalQueue.sync {
+          
             self.fetchNotes()
             self.fetchFertilization()
             self.fetchSprayer()
-        }
-        run(after: 2){
+        
+            run(after: 1){
             self.NOTE.sort(by:{$0.date > $1.date})
             self.table.reloadData()
+            }
         }
-        
-        
-    
     }
 
+   
+    
     override func viewDidDisappear(_ animated: Bool) {
         NOTE.removeAll()
         sortedNOTE.removeAll()

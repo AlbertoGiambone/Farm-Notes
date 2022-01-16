@@ -114,8 +114,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farming Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nf-VJ-F7t">
                                 <rect key="frame" x="20" y="88" width="259" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="259" id="hUE-5Z-B4Y"/>
-                                    <constraint firstAttribute="height" constant="40" id="jHV-ID-81n"/>
+                                    <constraint firstAttribute="height" constant="40" id="4KS-BP-Aau"/>
+                                    <constraint firstAttribute="width" constant="259" id="tNb-8A-HqQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -186,15 +186,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Nr-SY-fFV" secondAttribute="bottom" constant="55" id="3fM-jz-Ue3"/>
-                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3xC-NV-Em5"/>
-                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CdZ-zY-E3O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ho5-iP-g2c" secondAttribute="bottom" constant="55" id="OBN-7w-8DE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ch-yX-jhJ" secondAttribute="trailing" constant="20" id="SSV-D6-pXP"/>
+                            <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="4nf-VJ-F7t" secondAttribute="bottom" constant="38" id="TJq-mZ-X1o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ho5-iP-g2c" secondAttribute="trailing" constant="20" id="iT9-T2-nxA"/>
-                            <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="78" id="lk2-Ph-826"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Py1-Ey-pob" secondAttribute="bottom" constant="55" id="oJ6-aK-tBh"/>
+                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oKY-OT-rgI"/>
                             <constraint firstItem="Py1-Ey-pob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pE0-xl-mrb"/>
-                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uH2-E6-pHk"/>
+                            <constraint firstItem="4nf-VJ-F7t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vX1-Ub-a4a"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xzu-LH-h8p"/>
                             <constraint firstItem="0Nr-SY-fFV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zbx-gO-fa3"/>
                         </constraints>
@@ -496,22 +495,6 @@
             </objects>
             <point key="canvasLocation" x="1818.840579710145" y="867.85714285714278"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="992-Wd-Gws">
-            <objects>
-                <viewController id="h1c-8l-vqa" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kul-cD-jHH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="jAF-dE-67D"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="69k-xa-gkJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v2G-W2-HjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2758" y="80"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kt6-xc-UdQ">
             <objects>
@@ -523,6 +506,9 @@
                         <color key="tintColor" red="0.81930634469999997" green="0.75632143279999997" blue="0.55355256610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MH6-PU-JTd">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="XiA-gI-AIt"/>
                     </connections>
