@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func fetchNotes() {
         
-        db.collection("notes").getDocuments() { [self](querySnapshot, err) in
+        db.collection("notes").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                     
                     let y = documet.data()["UID"] as! String
                     
-                    if y == userID {
+                    if y == self.userID {
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func fetchFertilization () {
         
-        db.collection("FertilizationNote").getDocuments() { [self](querySnapshot, err) in
+        db.collection("FertilizationNote").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
@@ -69,7 +69,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                 
                     let y = documet.data()["UID"] as! String
                     
-                    if y == userID {
+                    if y == self.userID {
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["fertDate"] as! String)!
@@ -87,7 +87,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func fetchSprayer() {
         
-        db.collection("SprayerNote").getDocuments() { [self](querySnapshot, err) in
+        db.collection("SprayerNote").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
@@ -96,7 +96,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                 
                     let y = documet.data()["UID"] as! String
                     
-                    if y == userID {
+                    if y == self.userID {
                         
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
@@ -135,8 +135,28 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         table.delegate = self
         table.dataSource = self
         
-        table.reloadData()
-        //ifNotLoad()
+        //MARK: Sign IN
+        
+        if UserDefaults.standard.object(forKey: "userInfo") == nil {
+        Auth.auth().signInAnonymously { authResult, error in
+            guard let user = authResult?.user else { return }
+            let isAnonymous = user.isAnonymous  // true
+            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+            if isAnonymous == true {
+                print("User is signed in with UID \(user.uid)")
+                }
+            }
+        }else{
+            print("USER ALREADY LOGGED IN!!!")
+            
+        }
+        
+        userID = UserDefaults.standard.object(forKey: "userInfo") as? String
+        
+        
+    
+        
+        
     }
     
     /*
@@ -159,29 +179,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
 
     override func viewWillAppear(_ animated: Bool) {
         
-        //MARK: Sign IN
         
-        if UserDefaults.standard.object(forKey: "userInfo") == nil {
-        Auth.auth().signInAnonymously { authResult, error in
-            guard let user = authResult?.user else { return }
-            let isAnonymous = user.isAnonymous  // true
-            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
-            if isAnonymous == true {
-                print("User is signed in with UID \(user.uid)")
-                }
-            }
-        }else{
-            print("USER ALREADY LOGGED IN!!!")
-            
-        }
+        //let globalQueue = DispatchQueue.global()
         
-        userID = UserDefaults.standard.object(forKey: "userInfo") as? String
-        
-        
-        let globalQueue = DispatchQueue.global()
-        
-        globalQueue.sync {
+        let group = DispatchGroup()
+        group.enter()
           
+        DispatchQueue.global(qos: .default).sync {
+                
             self.fetchNotes()
             self.fetchFertilization()
             self.fetchSprayer()
@@ -190,7 +195,12 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
             self.NOTE.sort(by:{$0.date > $1.date})
             self.table.reloadData()
             }
-        }
+            
+                group.leave()
+            }
+        
+        group.wait()
+    
     }
 
    
@@ -329,11 +339,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     }
     
     
-    //MARK: Action
-    
-    
-    
-    
+ 
 
 }
 
