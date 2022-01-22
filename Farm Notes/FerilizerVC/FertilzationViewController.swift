@@ -174,15 +174,29 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         }
         
         let action = UIAlertAction(title: "Save", style: .default)  { (_) in
-            let N = alert.textFields![0].text
-            let P = alert.textFields![1].text
-            let K = alert.textFields![2].text
-            let kg = alert.textFields![3].text
+            var N = alert.textFields![0].text
+            var P = alert.textFields![1].text
+            var K = alert.textFields![2].text
+            var kg = alert.textFields![3].text
             
             let todayDate = Date()
             let todayFormatter = DateFormatter()
             todayFormatter.dateStyle = .short
             let now = todayFormatter.string(from: todayDate)
+            
+            if N == "" {
+                N = "0"
+            }
+            if P == "" {
+                P = "0"
+            }
+            if K == "" {
+                K = "0"
+            }
+            if kg == "" {
+                kg = "0"
+            }
+            
             
             let newFert = String("\(now) \(N!) \(P!) \(K!) \(kg!)")
             
@@ -328,6 +342,56 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedRow = FirestoreArray[indexPath.row]
+        
+        let sep = selectedRow.components(separatedBy: " ")
+        
+        let alert = UIAlertController(title: "Edit Fertilization", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = sep[1]
+            textField.keyboardType = .numberPad
+        }
+        alert.addTextField { (textField) in
+            textField.text = sep[2]
+            textField.keyboardType = .numberPad
+        }
+        alert.addTextField { (textField) in
+            textField.text = sep[3]
+            textField.keyboardType = .numberPad
+        }
+        alert.addTextField { (textField) in
+            textField.text = sep[4]
+            textField.keyboardType = .numberPad
+        }
+        
+        let action = UIAlertAction(title: "Save", style: .default)  { (_) in
+            let N = alert.textFields![0].text
+            let P = alert.textFields![1].text
+            let K = alert.textFields![2].text
+            let kg = alert.textFields![3].text
+            
+            let todayDate = Date()
+            let todayFormatter = DateFormatter()
+            todayFormatter.dateStyle = .short
+            let now = todayFormatter.string(from: todayDate)
+            
+            let newFert = String("\(now) \(N!) \(P!) \(K!) \(kg!)")
+            
+            self.FirestoreArray[indexPath.row] = newFert
+            
+            self.table.reloadData()
+            }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+            print("Cancel button tapped");
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(action)
+    
+        present(alert, animated: true, completion: nil)
+    }
     
 }
     
