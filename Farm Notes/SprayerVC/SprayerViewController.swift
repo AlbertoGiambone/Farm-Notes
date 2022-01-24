@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import Foundation
 
-class SprayerViewController: UIViewController, UITextViewDelegate {
+class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     
     //MARK: Connection
@@ -111,6 +111,16 @@ class SprayerViewController: UIViewController, UITextViewDelegate {
     }
     
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
     
 }
