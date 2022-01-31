@@ -12,9 +12,10 @@
 		A025E992274ED3BA00F7928C /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025E991274ED3BA00F7928C /* RoundLabel.swift */; };
 		A025E994274ED3FB00F7928C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025E993274ED3FB00F7928C /* RoundButton.swift */; };
 		A044E900274E765200ACA9F9 /* notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044E8FF274E765200ACA9F9 /* notes.swift */; };
-		A0536A49277B679400662E95 /* FertilizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0536A48277B679400662E95 /* FertilizationModel.swift */; };
+		A0536A49277B679400662E95 /* Spraying.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0536A48277B679400662E95 /* Spraying.swift */; };
 		A071185D27760F700010906A /* HomeTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071185C27760F700010906A /* HomeTV.swift */; };
 		A071C113279EF49B006B0AC9 /* SprayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C112279EF49B006B0AC9 /* SprayerTableViewCell.swift */; };
+		A071C11527A3E1A7006B0AC9 /* AddSpaiyngViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C11427A3E1A7006B0AC9 /* AddSpaiyngViewController.swift */; };
 		A0780E06277C8EB300EC06B7 /* SprayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0780E05277C8EB300EC06B7 /* SprayerViewController.swift */; };
 		A086970D274BF6B500AB515D /* CELLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086970C274BF6B500AB515D /* CELLTableViewCell.swift */; };
 		A086970F274E749300AB515D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086970E274E749300AB515D /* NotesViewController.swift */; };
@@ -39,9 +40,10 @@
 		A025E991274ED3BA00F7928C /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		A025E993274ED3FB00F7928C /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A044E8FF274E765200ACA9F9 /* notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.swift; sourceTree = "<group>"; };
-		A0536A48277B679400662E95 /* FertilizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilizationModel.swift; sourceTree = "<group>"; };
+		A0536A48277B679400662E95 /* Spraying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spraying.swift; sourceTree = "<group>"; };
 		A071185C27760F700010906A /* HomeTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTV.swift; sourceTree = "<group>"; };
 		A071C112279EF49B006B0AC9 /* SprayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprayerTableViewCell.swift; sourceTree = "<group>"; };
+		A071C11427A3E1A7006B0AC9 /* AddSpaiyngViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpaiyngViewController.swift; sourceTree = "<group>"; };
 		A0780E05277C8EB300EC06B7 /* SprayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprayerViewController.swift; sourceTree = "<group>"; };
 		A086970C274BF6B500AB515D /* CELLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CELLTableViewCell.swift; path = "Farm Notes/CELLTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		A086970E274E749300AB515D /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +91,7 @@
 			children = (
 				A08D74AB2756C395005CBACE /* Fertilizer.swift */,
 				A071185C27760F700010906A /* HomeTV.swift */,
-				A0536A48277B679400662E95 /* FertilizationModel.swift */,
+				A0536A48277B679400662E95 /* Spraying.swift */,
 				A044E8FF274E765200ACA9F9 /* notes.swift */,
 			);
 			path = Models;
@@ -98,6 +100,7 @@
 		A0780E07277C8EBA00EC06B7 /* SprayerVC */ = {
 			isa = PBXGroup;
 			children = (
+				A071C11427A3E1A7006B0AC9 /* AddSpaiyngViewController.swift */,
 				A0780E05277C8EB300EC06B7 /* SprayerViewController.swift */,
 				A071C112279EF49B006B0AC9 /* SprayerTableViewCell.swift */,
 			);
@@ -326,11 +329,12 @@
 				A086970F274E749300AB515D /* NotesViewController.swift in Sources */,
 				A086970D274BF6B500AB515D /* CELLTableViewCell.swift in Sources */,
 				A025E992274ED3BA00F7928C /* RoundLabel.swift in Sources */,
+				A071C11527A3E1A7006B0AC9 /* AddSpaiyngViewController.swift in Sources */,
 				A025E98F274E813E00F7928C /* RoundTableViewCell.swift in Sources */,
 				A0A3ABF3276DD82B008CE9BE /* WeightUnit.swift in Sources */,
 				A071185D27760F700010906A /* HomeTV.swift in Sources */,
 				A0D4BAC9277AFB08007043F5 /* CELLFertilizerTableViewCell.swift in Sources */,
-				A0536A49277B679400662E95 /* FertilizationModel.swift in Sources */,
+				A0536A49277B679400662E95 /* Spraying.swift in Sources */,
 				A0780E06277C8EB300EC06B7 /* SprayerViewController.swift in Sources */,
 				A044E900274E765200ACA9F9 /* notes.swift in Sources */,
 				A0F0800F274BE3AF001363DA /* SceneDelegate.swift in Sources */,

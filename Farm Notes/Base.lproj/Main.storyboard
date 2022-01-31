@@ -18,6 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HE-yw-fcR">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hu-fQ-boj">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4hu-fQ-boj" secondAttribute="bottom" id="Gsp-x5-9YU"/>
+                                    <constraint firstItem="4hu-fQ-boj" firstAttribute="leading" secondItem="7HE-yw-fcR" secondAttribute="leading" id="Mfm-qs-HY0"/>
+                                    <constraint firstItem="4hu-fQ-boj" firstAttribute="width" secondItem="7HE-yw-fcR" secondAttribute="width" id="Rgd-kf-pIt"/>
+                                    <constraint firstAttribute="trailing" secondItem="4hu-fQ-boj" secondAttribute="trailing" id="gRH-7u-eSy"/>
+                                    <constraint firstItem="4hu-fQ-boj" firstAttribute="height" secondItem="7HE-yw-fcR" secondAttribute="height" priority="250" id="toi-0H-9ZB"/>
+                                    <constraint firstItem="4hu-fQ-boj" firstAttribute="top" secondItem="7HE-yw-fcR" secondAttribute="top" id="vpE-Wx-LBV"/>
+                                </constraints>
+                            </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-yX-jhJ">
                                 <rect key="frame" x="20" y="166" width="374" height="495"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -185,10 +202,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="7HE-yw-fcR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0yn-i5-p6g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Nr-SY-fFV" secondAttribute="bottom" constant="55" id="3fM-jz-Ue3"/>
+                            <constraint firstItem="7HE-yw-fcR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5bZ-lf-tmL"/>
+                            <constraint firstItem="7HE-yw-fcR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EKq-hs-XzH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ho5-iP-g2c" secondAttribute="bottom" constant="55" id="OBN-7w-8DE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ch-yX-jhJ" secondAttribute="trailing" constant="20" id="SSV-D6-pXP"/>
                             <constraint firstItem="6ch-yX-jhJ" firstAttribute="top" secondItem="4nf-VJ-F7t" secondAttribute="bottom" constant="38" id="TJq-mZ-X1o"/>
+                            <constraint firstAttribute="bottom" secondItem="7HE-yw-fcR" secondAttribute="bottom" id="bqg-ca-L4s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ho5-iP-g2c" secondAttribute="trailing" constant="20" id="iT9-T2-nxA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Py1-Ey-pob" secondAttribute="bottom" constant="55" id="oJ6-aK-tBh"/>
                             <constraint firstItem="4nf-VJ-F7t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oKY-OT-rgI"/>
@@ -296,7 +317,9 @@
                                                     </backgroundConfiguration>
                                                 </buttonConfiguration>
                                                 <connections>
+                                                    <action selector="addFertilizationTapped:" destination="Fmu-4k-17I" eventType="touchUpInside" id="E1D-4a-e7t"/>
                                                     <action selector="plusButtonTapped:" destination="b8z-0F-aXB" eventType="touchUpInside" id="IuB-V0-lEi"/>
+                                                    <segue destination="BIM-CA-WHT" kind="show" id="y0D-kz-9jV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -426,11 +449,102 @@
                     <connections>
                         <outlet property="sprayerBody" destination="AK0-2K-CYH" id="BVm-Uf-9wv"/>
                         <outlet property="sprayerTitle" destination="hoB-v6-TM3" id="XEE-8M-HGB"/>
+                        <outlet property="table" destination="3ee-0X-Gnd" id="MF3-Ap-7Hg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1I-L8-pZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="737.68115942028987" y="867.85714285714278"/>
+        </scene>
+        <!--Add Spaiyng View Controller-->
+        <scene sceneID="Nbb-UP-shP">
+            <objects>
+                <viewController id="BIM-CA-WHT" customClass="AddSpaiyngViewController" customModule="Farm_Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aHg-vl-Gyy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-6r-RA7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esz-Oq-1dl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Product Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Qv-1P-zAj">
+                                                <rect key="frame" x="47" y="29" width="321" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZY3-ly-EYg">
+                                                <rect key="frame" x="47" y="128" width="321" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <segments>
+                                                    <segment title="Liters / Ha"/>
+                                                    <segment title="Grams / Ha"/>
+                                                </segments>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </segmentedControl>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Quantity" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WK6-sv-Xhh">
+                                                <rect key="frame" x="147" y="196" width="120" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Esz-Oq-1dl" firstAttribute="top" secondItem="iWk-6r-RA7" secondAttribute="top" id="IT1-0q-ZJ3"/>
+                                    <constraint firstAttribute="bottom" secondItem="Esz-Oq-1dl" secondAttribute="bottom" id="LYN-fc-PL0"/>
+                                    <constraint firstItem="Esz-Oq-1dl" firstAttribute="width" secondItem="iWk-6r-RA7" secondAttribute="width" id="Rs8-tK-GHk"/>
+                                    <constraint firstItem="Esz-Oq-1dl" firstAttribute="height" secondItem="iWk-6r-RA7" secondAttribute="height" priority="250" id="eua-fZ-2OL"/>
+                                    <constraint firstItem="Esz-Oq-1dl" firstAttribute="leading" secondItem="iWk-6r-RA7" secondAttribute="leading" id="wZk-ZW-XL2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Esz-Oq-1dl" secondAttribute="trailing" id="yJA-nO-5Io"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yty-0V-UiU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iWk-6r-RA7" firstAttribute="leading" secondItem="yty-0V-UiU" secondAttribute="leading" id="2Z7-Uw-cPB"/>
+                            <constraint firstItem="iWk-6r-RA7" firstAttribute="top" secondItem="aHg-vl-Gyy" secondAttribute="top" constant="88" id="7Hs-C2-Lyi"/>
+                            <constraint firstItem="iWk-6r-RA7" firstAttribute="leading" secondItem="yty-0V-UiU" secondAttribute="leading" id="969-We-38I"/>
+                            <constraint firstItem="iWk-6r-RA7" firstAttribute="top" secondItem="aHg-vl-Gyy" secondAttribute="top" constant="88" id="OZZ-2Q-qLq"/>
+                            <constraint firstAttribute="bottom" secondItem="iWk-6r-RA7" secondAttribute="bottom" id="QA2-5u-rqy"/>
+                            <constraint firstItem="iWk-6r-RA7" firstAttribute="trailing" secondItem="yty-0V-UiU" secondAttribute="trailing" id="R0U-BX-2jA"/>
+                            <constraint firstAttribute="bottom" secondItem="iWk-6r-RA7" secondAttribute="bottom" id="RW1-BM-ZPg"/>
+                            <constraint firstItem="iWk-6r-RA7" firstAttribute="trailing" secondItem="yty-0V-UiU" secondAttribute="trailing" id="wCB-Vn-2tl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rbP-6f-BPt">
+                        <barButtonItem key="rightBarButtonItem" id="aac-TL-5A5">
+                            <imageReference key="image" image="checkmark.circle.fill" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="BIM-CA-WHT" id="fU3-lO-fjW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="SprayerName" destination="9Qv-1P-zAj" id="K55-MI-YA9"/>
+                        <outlet property="quantity" destination="WK6-sv-Xhh" id="hUT-sv-nay"/>
+                        <outlet property="segment" destination="ZY3-ly-EYg" id="JrJ-p6-A7m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3nc-05-38E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737.68115942028987" y="1645.9821428571429"/>
         </scene>
         <!--Fertilzation View Controller-->
         <scene sceneID="HNN-nn-lew">
@@ -664,6 +778,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="backward.frame.fill" catalog="system" width="128" height="93"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="note.text.badge.plus" catalog="system" width="128" height="108"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

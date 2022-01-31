@@ -9,7 +9,19 @@ import UIKit
 import Firebase
 import Foundation
 
-class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
+struct Contact{
+    var SPRAYERNAME: String
+}
+
+class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDelegate {
+    
+    func AddContact(contact: Contact) {
+        self.dismiss(animated: true) {
+            self.SprayerName.append(contact)
+            self.table.reloadData()
+        }
+    }
+    
 
     
     //MARK: Connection
@@ -18,8 +30,11 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
     
     @IBOutlet weak var sprayerBody: UITextView!
     
+    @IBOutlet weak var table: UITableView!
     
+        
     
+    var SprayerName = [Contact]()
     
     //MARK: LifeCycle
     
@@ -49,6 +64,10 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
             //noteBody.textColor = UIColor.lightGray
             
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        table.reloadData()
     }
 
 
@@ -116,11 +135,83 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        SprayerName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SprayerTableViewCell
+        cell.HerbicideLabel.text = SprayerName[indexPath.row].SPRAYERNAME
+        
+        return cell
     }
+    
+    
+    //MARK: Action
+    
+    @IBAction func addFertilizationTapped(_ sender: UIButton) {
+        
+        let controller = AddSpaiyngViewController()
+        
+        controller.delegate = self
+        
+        
+        /*
+        let alert = UIAlertController(title: "spraying", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Product Name"
+            textField.keyboardType = .default
+        }
+
+        
+        let action = UIAlertAction(title: "Save", style: .default)  { (_) in
+            var N = alert.textFields![0].text
+            var P = alert.textFields![1].text
+            var K = alert.textFields![2].text
+            var kg = alert.textFields![3].text
+            
+            let todayDate = Date()
+            let todayFormatter = DateFormatter()
+            todayFormatter.dateStyle = .short
+            let now = todayFormatter.string(from: todayDate)
+            
+            if N == "" {
+                N = "0"
+            }
+            if P == "" {
+                P = "0"
+            }
+            if K == "" {
+                K = "0"
+            }
+            if kg == "" {
+                kg = "0"
+            }
+            
+            
+            let newFert = String("\(now) \(N!) \(P!) \(K!) \(kg!)")
+            
+            //self.FirestoreArray.append(newFert)
+            
+            //self.table.reloadData()
+            }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+            print("Cancel button tapped");
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(action)
+    
+        present(alert, animated: true, completion: nil)
+        
+        
+        */
+        
+    }
+    
+
+    
+    
+    
+    
     
 }

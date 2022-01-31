@@ -148,7 +148,7 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
     
     //MARK: Action
     
-    var FertArray = [FertModel]()
+    //var FertArray = [FertModel]()
     var SaveFertArray = [String]()
     
     let db = Firestore.firestore()
