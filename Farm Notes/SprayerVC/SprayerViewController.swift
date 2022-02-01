@@ -9,21 +9,11 @@ import UIKit
 import Firebase
 import Foundation
 
-struct Contact{
-    var SPRAYERNAME: String
-}
-
-class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDelegate {
+class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    func AddContact(contact: Contact) {
-        self.dismiss(animated: true) {
-            self.SprayerName.append(contact)
-            self.table.reloadData()
-        }
-    }
+  
     
 
-    
     //MARK: Connection
     
     @IBOutlet weak var sprayerTitle: UITextField!
@@ -34,7 +24,6 @@ class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDel
     
         
     
-    var SprayerName = [Contact]()
     
     //MARK: LifeCycle
     
@@ -44,10 +33,14 @@ class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDel
     var ID: String?
     var noteBODY: String?
     var noteTITLE: String?
+    var sprayingTime = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        table.dataSource = self
+        table.delegate = self
+        
         print("EDIT: \(edit)")
         self.navigationController?.navigationBar.tintColor = .systemIndigo
 
@@ -66,9 +59,7 @@ class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDel
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        table.reloadData()
-    }
+   
 
 
     //MARK: TEXVIEW placeholder being editing
@@ -135,12 +126,12 @@ class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        SprayerName.count
+        return sprayingTime.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SprayerTableViewCell
-        cell.HerbicideLabel.text = SprayerName[indexPath.row].SPRAYERNAME
+        cell.HerbicideLabel.text = sprayingTime[indexPath.row]
         
         return cell
     }
@@ -150,9 +141,7 @@ class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDel
     
     @IBAction func addFertilizationTapped(_ sender: UIButton) {
         
-        let controller = AddSpaiyngViewController()
         
-        controller.delegate = self
         
         
         /*
@@ -208,7 +197,18 @@ class SprayerViewController: UIViewController, UITextViewDelegate, AddContactDel
         
     }
     
-
+    @IBAction func unwindFromAddSpraying(_ sender: UIStoryboardSegue){
+        
+        if sender.source is AddSpaiyngViewController {
+            
+            if let senderVC = sender.source as? AddSpaiyngViewController {
+                sprayingTime.append(senderVC.spraying!)
+            }
+            
+            
+        }
+        table.reloadData()
+    }
     
     
     

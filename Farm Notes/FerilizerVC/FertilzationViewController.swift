@@ -304,9 +304,9 @@ class FertilzationViewController: UIViewController, UITextViewDelegate, UITableV
         print("THIS IS FIRE: \(FIRE)")
         
         cell.Fdate.text = String("  \(UUU[0])")
-        cell.Nlabel.text = String("\(UUU[1]) N")
-        cell.Plabel.text = String("\(UUU[2]) P")
-        cell.Klabel.text = String("\(UUU[3]) K")
+        cell.Nlabel.text = String("\(UUU[1])")
+        cell.Plabel.text = String("\(UUU[2])")
+        cell.Klabel.text = String("\(UUU[3])")
         cell.KGlabel.text = String("\(UUU[4]) Kg/Ha")
         
         cell.backgroundColor = UIColor.systemGray5

@@ -8,14 +8,10 @@
 import UIKit
 import Firebase
 
-protocol AddContactDelegate{
-    func AddContact(contact: Contact)
-}
+
 
 class AddSpaiyngViewController: UIViewController {
 
-    
-    var delegate: AddContactDelegate?
     
     //MARK: Connection
     
@@ -52,9 +48,10 @@ class AddSpaiyngViewController: UIViewController {
     
     let db = Firestore.firestore()
     
+    var spraying: String?
     
-    
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     
         
         let todayDate = Date()
         let todayFormatter = DateFormatter()
@@ -62,22 +59,16 @@ class AddSpaiyngViewController: UIViewController {
         let now = todayFormatter.string(from: todayDate)
         
         if edit == false {
-            let SName: Contact = Contact(SPRAYERNAME: SprayerName.text ?? "")
             
-            delegate?.AddContact(contact: SName)
+            spraying = String("\(now) \(SprayerName.text!) \(quantity.text!)")
             
         }else{
-            
-            let DOCREFERENCE = db.collection("FertilizationNote").document(ID!)
             
             
         }
         
-        
-        navigationController?.popViewController(animated: true)
-        
     }
-    
+   
     
     
     
