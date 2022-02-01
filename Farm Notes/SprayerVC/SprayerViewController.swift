@@ -41,6 +41,13 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
         table.dataSource = self
         table.delegate = self
         
+        table.delegate = self
+        table.dataSource = self
+        table.reloadData()
+        
+        table.layer.cornerRadius = 15
+        table.backgroundColor = UIColor.systemGray5
+        
         print("EDIT: \(edit)")
         self.navigationController?.navigationBar.tintColor = .systemIndigo
 
@@ -95,10 +102,11 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
         let now = dayFormatter.string(from: day)
         
         if edit == false {
-            
+ 
             self.db.collection("SprayerNote").addDocument(data: ["type": String("SprayerNote"), "title": String(sprayerTitle.text ?? ""),
                 "body": String(sprayerBody.text ?? ""),
                 "date": String(now),
+                "distribution": sprayingTime,
                 "UID": String(userID!)
             ]) { err in
                 if let err = err {
@@ -114,6 +122,7 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
                 "title": String(sprayerTitle.text!),
                 "body": String(sprayerBody.text),
                 "date": String(now),
+                "distribution": sprayingTime,
                 "UID": String(userID!)
             ])
         }
@@ -131,86 +140,62 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SprayerTableViewCell
-        cell.HerbicideLabel.text = sprayingTime[indexPath.row]
+        
+        let FIRE = sprayingTime[indexPath.row]
+        
+        let UUU = FIRE.components(separatedBy: " ")
+        print("THIS IS FIRE: \(FIRE)")
+        
+        cell.dateLabel.text = String("  \(UUU[0])")
+        cell.HerbicideLabel.text = String("\(UUU[1])")
+        cell.quantityLabel.text = String("\(UUU[2]) \(UUU[3])")
+        
+        cell.backgroundColor = UIColor.systemGray5
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    var selected: String?
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected = sprayingTime[indexPath.row]
+ 
+        performSegue(withIdentifier: "editTV", sender: nil)
+    }
     
     //MARK: Action
     
-    @IBAction func addFertilizationTapped(_ sender: UIButton) {
-        
-        
-        
-        
-        /*
-        let alert = UIAlertController(title: "spraying", message: nil, preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.placeholder = "Product Name"
-            textField.keyboardType = .default
-        }
-
-        
-        let action = UIAlertAction(title: "Save", style: .default)  { (_) in
-            var N = alert.textFields![0].text
-            var P = alert.textFields![1].text
-            var K = alert.textFields![2].text
-            var kg = alert.textFields![3].text
-            
-            let todayDate = Date()
-            let todayFormatter = DateFormatter()
-            todayFormatter.dateStyle = .short
-            let now = todayFormatter.string(from: todayDate)
-            
-            if N == "" {
-                N = "0"
-            }
-            if P == "" {
-                P = "0"
-            }
-            if K == "" {
-                K = "0"
-            }
-            if kg == "" {
-                kg = "0"
-            }
-            
-            
-            let newFert = String("\(now) \(N!) \(P!) \(K!) \(kg!)")
-            
-            //self.FirestoreArray.append(newFert)
-            
-            //self.table.reloadData()
-            }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
-            print("Cancel button tapped");
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(action)
-    
-        present(alert, animated: true, completion: nil)
-        
-        
-        */
-        
-    }
+  
     
     @IBAction func unwindFromAddSpraying(_ sender: UIStoryboardSegue){
         
         if sender.source is AddSpaiyngViewController {
             
             if let senderVC = sender.source as? AddSpaiyngViewController {
+                
+                if senderVC.edit == true {
+                    
+                }else{
                 sprayingTime.append(senderVC.spraying!)
+                }
             }
-            
             
         }
         table.reloadData()
     }
     
+    //MARK: segue
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTV" {
+            let nextVC = segue.destination as? AddSpaiyngViewController
+            nextVC?.editSpraying = selected
+            nextVC?.edit = true
+        }
+    }
     
     
     

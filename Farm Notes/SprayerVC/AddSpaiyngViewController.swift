@@ -25,10 +25,26 @@ class AddSpaiyngViewController: UIViewController {
     
     var edit = false
     var ID: String?
+    var editSpraying: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        if edit == true {
+            let UUU = editSpraying!.components(separatedBy: " ")
+            
+            SprayerName.text = String("\(UUU[1])")
+            quantity.text = String("\(UUU[2])")
+            if UUU[2] == "Gr/Ha" {
+                segment.selectedSegmentIndex = 1
+            }
+            if UUU[2] == "Lt/Ha" {
+                segment.selectedSegmentIndex = 0
+            }
+            
+        }
         
         
         //Segment Color
@@ -60,7 +76,15 @@ class AddSpaiyngViewController: UIViewController {
         
         if edit == false {
             
-            spraying = String("\(now) \(SprayerName.text!) \(quantity.text!)")
+            
+            if segment.selectedSegmentIndex == 0 {
+            
+                spraying = String("\(now) \(SprayerName.text!) \(quantity.text!) Lt/Ha")
+            }
+            if segment.selectedSegmentIndex == 1 {
+            
+                spraying = String("\(now) \(SprayerName.text!) \(quantity.text!) Gr/Ha")
+            }
             
         }else{
             

@@ -317,7 +317,6 @@
                                                     </backgroundConfiguration>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="addFertilizationTapped:" destination="Fmu-4k-17I" eventType="touchUpInside" id="E1D-4a-e7t"/>
                                                     <action selector="plusButtonTapped:" destination="b8z-0F-aXB" eventType="touchUpInside" id="IuB-V0-lEi"/>
                                                     <segue destination="BIM-CA-WHT" kind="show" id="y0D-kz-9jV"/>
                                                 </connections>
@@ -356,7 +355,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-0X-Gnd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-0X-Gnd">
                                 <rect key="frame" x="20" y="473" width="374" height="323"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -373,23 +372,23 @@
                                                         <constraint firstAttribute="height" constant="21" id="8pQ-Ka-mzh"/>
                                                         <constraint firstAttribute="width" constant="63" id="aOM-36-T1s"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ae-d4-olE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ae-d4-olE">
                                                     <rect key="frame" x="78" y="11" width="196" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemIndigoColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZC-lA-Y14">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZC-lA-Y14">
                                                     <rect key="frame" x="289" y="11" width="85" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="85" id="J9z-Gl-LJo"/>
                                                         <constraint firstAttribute="height" constant="21.5" id="dN3-l0-aVN"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -450,6 +449,7 @@
                         <outlet property="sprayerBody" destination="AK0-2K-CYH" id="BVm-Uf-9wv"/>
                         <outlet property="sprayerTitle" destination="hoB-v6-TM3" id="XEE-8M-HGB"/>
                         <outlet property="table" destination="3ee-0X-Gnd" id="MF3-Ap-7Hg"/>
+                        <segue destination="BIM-CA-WHT" kind="show" identifier="editTV" id="JdE-En-AOc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1I-L8-pZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -827,6 +827,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="3R3-5F-u6S"/>
+        <segue reference="JdE-En-AOc"/>
         <segue reference="FLj-5y-MAC"/>
         <segue reference="eu4-t3-haY"/>
     </inferredMetricsTieBreakers>
