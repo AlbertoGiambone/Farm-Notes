@@ -26,6 +26,7 @@ class AddSpaiyngViewController: UIViewController {
     var edit = false
     var ID: String?
     var editSpraying: String?
+    var IOA: Int?
     
     
     override func viewDidLoad() {
@@ -65,6 +66,7 @@ class AddSpaiyngViewController: UIViewController {
     let db = Firestore.firestore()
     
     var spraying: String?
+    var IOABACK: Int?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      
@@ -88,6 +90,16 @@ class AddSpaiyngViewController: UIViewController {
             
         }else{
             
+            if segment.selectedSegmentIndex == 0 {
+            
+                spraying = String("\(now) \(SprayerName.text!) \(quantity.text!) Lt/Ha")
+                IOABACK = IOA
+            }
+            if segment.selectedSegmentIndex == 1 {
+            
+                spraying = String("\(now) \(SprayerName.text!) \(quantity.text!) Gr/Ha")
+                IOABACK = IOA
+            }
             
         }
         

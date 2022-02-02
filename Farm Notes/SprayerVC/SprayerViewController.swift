@@ -160,9 +160,10 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
     }
     
     var selected: String?
+    var IND: Int?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = sprayingTime[indexPath.row]
- 
+        IND = sprayingTime.firstIndex(of: selected!)!
         performSegue(withIdentifier: "editTV", sender: nil)
     }
     
@@ -177,7 +178,7 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
             if let senderVC = sender.source as? AddSpaiyngViewController {
                 
                 if senderVC.edit == true {
-                    
+                    sprayingTime[senderVC.IOABACK!] = senderVC.spraying!
                 }else{
                 sprayingTime.append(senderVC.spraying!)
                 }
@@ -194,6 +195,7 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
             let nextVC = segue.destination as? AddSpaiyngViewController
             nextVC?.editSpraying = selected
             nextVC?.edit = true
+            nextVC?.IOA = IND
         }
     }
     
