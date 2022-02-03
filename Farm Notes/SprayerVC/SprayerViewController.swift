@@ -38,9 +38,6 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        table.dataSource = self
-        table.delegate = self
-        
         table.delegate = self
         table.dataSource = self
         table.reloadData()
@@ -51,6 +48,13 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
         print("EDIT: \(edit)")
         self.navigationController?.navigationBar.tintColor = .systemIndigo
 
+        self.queryFirestore()
+        run(after: 1){
+            self.table.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
         if edit == false {
@@ -59,15 +63,22 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
             sprayerBody.textColor = UIColor.lightGray
         }else{
             sprayerBody.delegate = self
-            sprayerBody.text = noteBODY
-            sprayerTitle.text = noteTITLE
-            //noteBody.textColor = UIColor.lightGray
             
+            //noteBody.textColor = UIColor.lightGray
+           
         }
+        
     }
-    
    
 
+    //MARK: func for dispatch
+    
+    func run(after seconds: Int, completion: @escaping () -> Void) {
+        let deadLine = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: deadLine){
+            completion()
+        }
+    }
 
     //MARK: TEXVIEW placeholder being editing
     
@@ -167,6 +178,27 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
         performSegue(withIdentifier: "editTV", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            sprayingTime.remove(at: indexPath.row)
+            
+            let DOCREFERENCE = db.collection("SprayerNote").document(ID!)
+            
+            DOCREFERENCE.updateData([
+                "distribution": sprayingTime
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+            table.deleteRows(at: [indexPath], with: .fade)
+            
+            table.reloadData()
+        }
+    }
+    
     //MARK: Action
     
   
@@ -200,5 +232,37 @@ class SprayerViewController: UIViewController, UITextViewDelegate, UITableViewDe
     }
     
     
+    //MARK: query Firestore
     
+    func queryFirestore() {
+
+        let db = Firestore.firestore()
+            db.collection("SprayerNote").getDocuments() { [self](querySnapshot, err) in
+                
+                if let err = err {
+                    print("Error getting Firestore data: \(err)")
+                }else{
+                    for documet in querySnapshot!.documents {
+                    
+                        let y = documet.documentID
+                        
+                        if y == ID {
+                        sprayerTitle.text = documet.data()["title"] as? String
+                        sprayerBody.text = documet.data()["body"] as? String
+                        sprayingTime = ((documet.data()["distribution"] as? [String])!)
+                        print("FERTITLEARRAY:    \(sprayingTime)")
+                            
+                            
+                    }
+                    
+                }
+                    
+            }
+        }
+            self.table.reloadData()
+        
+    }
+        
+        
+        
 }

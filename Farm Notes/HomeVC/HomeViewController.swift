@@ -291,8 +291,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         case "SprayerNote":
             ifEDIT = true
             docID = NOTE[indexPath.row].DID
-            nBODY = NOTE[indexPath.row].body
-            nTITLE = NOTE[indexPath.row].title
+            
             performSegue(withIdentifier: "sprayer", sender: nil)
             
         default:
