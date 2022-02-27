@@ -33,16 +33,13 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func fetchNotes() {
         
-        db.collection("notes").getDocuments() { (querySnapshot, err) in
+        db.collection("notes").whereField("UID", isEqualTo: userID!).getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
             }else{
                 for documet in querySnapshot!.documents {
                     
-                    let y = documet.data()["UID"] as! String
-                    
-                    if y == self.userID {
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
@@ -51,25 +48,23 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                         
                         self.NOTE.append(u)
                     }
-                }
+                
             
+                }
             }
-        }
         self.table.reloadData()
     }
     
     func fetchFertilization () {
         
-        db.collection("FertilizationNote").getDocuments() { (querySnapshot, err) in
+        db.collection("FertilizationNote").whereField("UID", isEqualTo: userID!).getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
             }else{
                 for documet in querySnapshot!.documents {
                 
-                    let y = documet.data()["UID"] as! String
                     
-                    if y == self.userID {
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["fertDate"] as! String)!
@@ -79,25 +74,21 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                         self.NOTE.append(f)
                     }
                     
+                
                 }
             }
-        }
         self.table.reloadData()
     }
     
     func fetchSprayer() {
         
-        db.collection("SprayerNote").getDocuments() { (querySnapshot, err) in
+        db.collection("SprayerNote").whereField("UID", isEqualTo: userID!).getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
             }else{
                 for documet in querySnapshot!.documents {
                 
-                    let y = documet.data()["UID"] as! String
-                    
-                    if y == self.userID {
-                        
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     let d: Date = formatter.date(from: documet.data()["date"] as! String)!
@@ -107,9 +98,9 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
                         self.NOTE.append(r)
                     }
                 
+                
                 }
             }
-        }
         self.table.reloadData()
     }
     
