@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6F90779112603E1B154DE5C9 /* Pods_Farm_Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 102D98D897DD602E8ED5459C /* Pods_Farm_Notes.framework */; };
+		A010523227CE3CCC009ADBF4 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = A010523127CE3CCC009ADBF4 /* MapboxMaps */; };
+		A010523427CE3EF1009ADBF4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A010523327CE3EF1009ADBF4 /* MapViewController.swift */; };
 		A025E98F274E813E00F7928C /* RoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025E98E274E813E00F7928C /* RoundTableViewCell.swift */; };
 		A025E992274ED3BA00F7928C /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025E991274ED3BA00F7928C /* RoundLabel.swift */; };
 		A025E994274ED3FB00F7928C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025E993274ED3FB00F7928C /* RoundButton.swift */; };
@@ -36,6 +38,7 @@
 		102D98D897DD602E8ED5459C /* Pods_Farm_Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		914B86CFCA3503D8C55FAA59 /* Pods-Farm Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm Notes.release.xcconfig"; path = "Target Support Files/Pods-Farm Notes/Pods-Farm Notes.release.xcconfig"; sourceTree = "<group>"; };
 		989B1B494C8469EDD0356FE5 /* Pods-Farm Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm Notes.debug.xcconfig"; path = "Target Support Files/Pods-Farm Notes/Pods-Farm Notes.debug.xcconfig"; sourceTree = "<group>"; };
+		A010523327CE3EF1009ADBF4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = "../New Group/MapViewController.swift"; sourceTree = "<group>"; };
 		A025E98E274E813E00F7928C /* RoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTableViewCell.swift; sourceTree = "<group>"; };
 		A025E991274ED3BA00F7928C /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		A025E993274ED3FB00F7928C /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A010523227CE3CCC009ADBF4 /* MapboxMaps in Frameworks */,
 				6F90779112603E1B154DE5C9 /* Pods_Farm_Notes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A010523527D2B4B0009ADBF4 /* MAP */ = {
+			isa = PBXGroup;
+			children = (
+				A010523327CE3EF1009ADBF4 /* MapViewController.swift */,
+			);
+			path = MAP;
+			sourceTree = "<group>";
+		};
 		A025E990274E825C00F7928C /* Services Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 				A025E990274E825C00F7928C /* Services Files */,
 				A044E8FE274E764A00ACA9F9 /* Models */,
 				A0F08012274BE3AF001363DA /* Main.storyboard */,
+				A010523527D2B4B0009ADBF4 /* MAP */,
 				A0780E07277C8EBA00EC06B7 /* SprayerVC */,
 				A0869710274E749D00AB515D /* NotesVC */,
 				A0F08022274BE5F5001363DA /* HomeVC */,
@@ -208,6 +221,9 @@
 			dependencies = (
 			);
 			name = "Farm Notes";
+			packageProductDependencies = (
+				A010523127CE3CCC009ADBF4 /* MapboxMaps */,
+			);
 			productName = "Farm Notes";
 			productReference = A0F08009274BE3AF001363DA /* Farm Notes.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +252,9 @@
 				Base,
 			);
 			mainGroup = A0F08000274BE3AF001363DA;
+			packageReferences = (
+				A010523027CE3CCC009ADBF4 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+			);
 			productRefGroup = A0F0800A274BE3AF001363DA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -330,6 +349,7 @@
 				A086970D274BF6B500AB515D /* CELLTableViewCell.swift in Sources */,
 				A025E992274ED3BA00F7928C /* RoundLabel.swift in Sources */,
 				A071C11527A3E1A7006B0AC9 /* AddSpaiyngViewController.swift in Sources */,
+				A010523427CE3EF1009ADBF4 /* MapViewController.swift in Sources */,
 				A025E98F274E813E00F7928C /* RoundTableViewCell.swift in Sources */,
 				A0A3ABF3276DD82B008CE9BE /* WeightUnit.swift in Sources */,
 				A071185D27760F700010906A /* HomeTV.swift in Sources */,
@@ -495,6 +515,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Farm Notes/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Farming Notes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "<key>NSLocationWhenInUseUsageDescription</key>\n<string>Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.</string>";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -506,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = " 1.1.2";
 				PRODUCT_BUNDLE_IDENTIFIER = "Alberto-Giambone.Farm-Notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -528,6 +549,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Farm Notes/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Farming Notes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "<key>NSLocationWhenInUseUsageDescription</key>\n<string>Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.</string>";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -539,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = " 1.1.2";
 				PRODUCT_BUNDLE_IDENTIFIER = "Alberto-Giambone.Farm-Notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -570,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A010523027CE3CCC009ADBF4 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A010523127CE3CCC009ADBF4 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A010523027CE3CCC009ADBF4 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0F08001274BE3AF001363DA /* Project object */;
 }

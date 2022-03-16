@@ -10,6 +10,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="F54-m1-A0b">
+            <objects>
+                <viewController id="3Ws-LY-FNc" customClass="MapViewController" customModule="Farm_Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="exj-at-RF1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGx-bh-2Sh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyP-2d-5cF">
+                                        <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PG-7Y-dEc">
+                                                <rect key="frame" x="0.0" y="112" width="414" height="348"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="348" id="kuR-W4-lTP"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="7PG-7Y-dEc" firstAttribute="top" secondItem="tyP-2d-5cF" secondAttribute="top" constant="112" id="7N6-In-Nqc"/>
+                                            <constraint firstAttribute="trailing" secondItem="7PG-7Y-dEc" secondAttribute="trailing" id="FYS-XU-lzf"/>
+                                            <constraint firstItem="7PG-7Y-dEc" firstAttribute="centerX" secondItem="tyP-2d-5cF" secondAttribute="centerX" id="T1A-Qd-7yB"/>
+                                            <constraint firstItem="7PG-7Y-dEc" firstAttribute="leading" secondItem="tyP-2d-5cF" secondAttribute="leading" id="Tf8-hC-2U1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="height" secondItem="EGx-bh-2Sh" secondAttribute="height" id="7eu-ds-fZJ"/>
+                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="centerX" secondItem="EGx-bh-2Sh" secondAttribute="centerX" id="B4H-Ss-zu2"/>
+                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="top" secondItem="4WN-eo-BdQ" secondAttribute="top" constant="-88" id="FNG-Sq-N8X"/>
+                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="width" secondItem="EGx-bh-2Sh" secondAttribute="width" id="H6F-4H-gXP"/>
+                                    <constraint firstAttribute="trailing" secondItem="tyP-2d-5cF" secondAttribute="trailing" id="Xw0-gt-fBw"/>
+                                    <constraint firstAttribute="bottom" secondItem="tyP-2d-5cF" secondAttribute="bottom" id="cR6-C9-TPV"/>
+                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="bottom" secondItem="54u-bj-nfZ" secondAttribute="bottom" id="hLh-Te-6OA"/>
+                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="leading" secondItem="54u-bj-nfZ" secondAttribute="leading" id="uwH-BD-FT4"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="4WN-eo-BdQ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="54u-bj-nfZ"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SRx-a9-hwI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EGx-bh-2Sh" firstAttribute="leading" secondItem="SRx-a9-hwI" secondAttribute="leading" id="9hz-If-DQc"/>
+                            <constraint firstAttribute="bottom" secondItem="EGx-bh-2Sh" secondAttribute="bottom" id="AAX-KY-8JM"/>
+                            <constraint firstItem="EGx-bh-2Sh" firstAttribute="top" secondItem="exj-at-RF1" secondAttribute="top" id="TdB-cA-45V"/>
+                            <constraint firstItem="EGx-bh-2Sh" firstAttribute="leading" secondItem="SRx-a9-hwI" secondAttribute="leading" id="aUK-ca-IYc"/>
+                            <constraint firstItem="EGx-bh-2Sh" firstAttribute="trailing" secondItem="SRx-a9-hwI" secondAttribute="trailing" id="dwe-Yb-OaL"/>
+                            <constraint firstAttribute="bottom" secondItem="EGx-bh-2Sh" secondAttribute="bottom" id="nfV-SR-iWS"/>
+                            <constraint firstItem="EGx-bh-2Sh" firstAttribute="trailing" secondItem="SRx-a9-hwI" secondAttribute="trailing" id="puh-11-EZK"/>
+                            <constraint firstItem="EGx-bh-2Sh" firstAttribute="top" secondItem="exj-at-RF1" secondAttribute="top" id="xrI-4k-9PV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qjr-5v-klI"/>
+                    <connections>
+                        <outlet property="mapView" destination="7PG-7Y-dEc" id="Unp-Nx-xw1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EIS-cA-J8o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918.84057971014499" y="-685.04464285714278"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -35,7 +102,7 @@
                                     <constraint firstItem="4hu-fQ-boj" firstAttribute="top" secondItem="7HE-yw-fcR" secondAttribute="top" id="vpE-Wx-LBV"/>
                                 </constraints>
                             </scrollView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-yX-jhJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-yX-jhJ">
                                 <rect key="frame" x="20" y="166" width="374" height="495"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -826,7 +893,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="3R3-5F-u6S"/>
+        <segue reference="Tqv-K1-pu1"/>
         <segue reference="JdE-En-AOc"/>
         <segue reference="FLj-5y-MAC"/>
         <segue reference="eu4-t3-haY"/>

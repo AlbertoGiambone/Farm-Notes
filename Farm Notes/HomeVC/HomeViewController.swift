@@ -11,6 +11,9 @@ import FirebaseUI
 
 class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    var refreshControl = UIRefreshControl()
+    
+    
     //MARK: Connection
     
     @IBOutlet weak var table: UITableView!
@@ -145,10 +148,67 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
         userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
         
-    
+        // Add Refresh Control to Table View
+                if #available(iOS 10.0, *) {
+                    table.refreshControl = refreshControl
+                } else {
+                    table.addSubview(refreshControl)
+                }
         
         
+        //add method to refresh data
+                refreshControl.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
+                
+                //Setting the tint Color of the Activity Animation
+                refreshControl.tintColor = UIColor.systemGray
+                
+                //Setting the attributed String to the text
+                let refreshString = NSMutableAttributedString(string: "Please wait loading...")
+                refreshString.addAttribute(.foregroundColor, value: UIColor.systemGray,
+                                           range: NSRange(location: 0, length: 6))
+                refreshString.addAttribute(.foregroundColor, value: UIColor.systemGray,
+                                           range: NSRange(location: 7, length: 4))
+                refreshString.addAttribute(.foregroundColor, value: UIColor.systemGray,
+                                           range: NSRange(location: 12, length: 10))
+                refreshControl.attributedTitle = refreshString
     }
+    
+    @objc func refreshTable(toRefresh sender: UIRefreshControl?) {
+            
+            //do work off the main thread
+            //DispatchQueue.global(qos: .default).async(execute: {
+            
+                // Simulate network traffic (sleep for 1 seconds)
+                //Thread.sleep(forTimeInterval: 1)
+                
+                //Update data
+                self.NOTE.removeAll()
+                self.sortedNOTE.removeAll()
+                
+                self.fetchNotes()
+                self.fetchFertilization()
+                self.fetchSprayer()
+            
+                self.run(after: 1){
+                self.NOTE.sort(by:{$0.date > $1.date})
+                self.table.reloadData()
+                }
+                
+                
+                //Call complete on the main thread
+                //DispatchQueue.main.sync(execute: {
+                    print("all done here...")
+                    //sender?.endRefreshing()
+                    self.table.reloadData()
+               // })
+            //})
+        refreshControl.endRefreshing()
+        
+        }
+    override func viewDidLayoutSubviews() {
+            super.viewDidLayoutSubviews()
+            
+        }
     
     /*
     func ifNotLoad(){
