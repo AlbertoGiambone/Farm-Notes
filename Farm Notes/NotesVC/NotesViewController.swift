@@ -77,7 +77,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         
         let db = Firestore.firestore()
         
-        
+        userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
         let day = Date()
         let dayFormatter = DateFormatter()

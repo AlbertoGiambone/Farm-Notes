@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kYh-dE-MPa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kYh-dE-MPa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyP-2d-5cF">
-                                        <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PG-7Y-dEc">
                                                 <rect key="frame" x="0.0" y="112" width="414" height="348"/>
@@ -44,7 +44,7 @@
                                 <constraints>
                                     <constraint firstItem="tyP-2d-5cF" firstAttribute="height" secondItem="EGx-bh-2Sh" secondAttribute="height" id="7eu-ds-fZJ"/>
                                     <constraint firstItem="tyP-2d-5cF" firstAttribute="centerX" secondItem="EGx-bh-2Sh" secondAttribute="centerX" id="B4H-Ss-zu2"/>
-                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="top" secondItem="4WN-eo-BdQ" secondAttribute="top" constant="-88" id="FNG-Sq-N8X"/>
+                                    <constraint firstItem="tyP-2d-5cF" firstAttribute="top" secondItem="4WN-eo-BdQ" secondAttribute="top" id="FNG-Sq-N8X"/>
                                     <constraint firstItem="tyP-2d-5cF" firstAttribute="width" secondItem="EGx-bh-2Sh" secondAttribute="width" id="H6F-4H-gXP"/>
                                     <constraint firstAttribute="trailing" secondItem="tyP-2d-5cF" secondAttribute="trailing" id="Xw0-gt-fBw"/>
                                     <constraint firstAttribute="bottom" secondItem="tyP-2d-5cF" secondAttribute="bottom" id="cR6-C9-TPV"/>
@@ -894,7 +894,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Tqv-K1-pu1"/>
-        <segue reference="JdE-En-AOc"/>
+        <segue reference="y0D-kz-9jV"/>
         <segue reference="FLj-5y-MAC"/>
         <segue reference="eu4-t3-haY"/>
     </inferredMetricsTieBreakers>

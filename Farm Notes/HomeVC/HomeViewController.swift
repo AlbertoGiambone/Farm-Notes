@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func fetchNotes() {
         
-        db.collection("notes").whereField("UID", isEqualTo: userID!).getDocuments() { (querySnapshot, err) in
+        db.collection("notes").whereField("UID", isEqualTo: userID ?? "").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func fetchFertilization () {
         
-        db.collection("FertilizationNote").whereField("UID", isEqualTo: userID!).getDocuments() { (querySnapshot, err) in
+        db.collection("FertilizationNote").whereField("UID", isEqualTo: userID ?? "").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
@@ -85,7 +85,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate
     
     func fetchSprayer() {
         
-        db.collection("SprayerNote").whereField("UID", isEqualTo: userID!).getDocuments() { (querySnapshot, err) in
+        db.collection("SprayerNote").whereField("UID", isEqualTo: userID ?? "").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting Firestore data: \(err)")
